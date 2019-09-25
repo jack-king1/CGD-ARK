@@ -14,6 +14,7 @@ namespace EventTypes
 
     public enum RESOURCETYPE
     {
+        none = -1,
         hunger,
         thirst,
         stone,
