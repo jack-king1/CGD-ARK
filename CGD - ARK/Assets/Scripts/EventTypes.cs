@@ -24,6 +24,6 @@ namespace EventTypes
     {
         walking,
         gathering,
-        fighting
+        attacking
     }
 }

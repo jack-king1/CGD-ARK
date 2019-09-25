@@ -9,13 +9,14 @@ public class Movement : MonoBehaviour
 {
 
     [Range(1.0f, 3.0f)]
-    public float speed;
-    private Rigidbody2D rigid;        
+    private Rigidbody2D rb;
+
+    [SerializeField] private float m_speed;
 
     // Use this for initialization
     void Start()
     {
-        rigid = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public void walk(MOVEMENT keypress)
@@ -23,19 +24,22 @@ public class Movement : MonoBehaviour
         switch(keypress)
         {
             case MOVEMENT.up:
-                //code here
+                rb.velocity = new Vector2(0, 1.0f  * (Time.fixedDeltaTime + m_speed));
                 break;
             case MOVEMENT.down:
-                //code here
+                rb.velocity = new Vector2(0, -1.0f * (Time.fixedDeltaTime + m_speed));
                 break;
             case MOVEMENT.left:
-                //code here
+                rb.velocity = new Vector2(-1.0f * (Time.fixedDeltaTime + m_speed), 0);
                 break;
             case MOVEMENT.right:
-                //code here
+                rb.velocity = new Vector2(1.0f * (Time.fixedDeltaTime + m_speed), 0 );
                 break;
         }
     }
 
-
+    public void stop()
+    {
+        rb.velocity = new Vector2(0f, 0f);
+    }
 }
