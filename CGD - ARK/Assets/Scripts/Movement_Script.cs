@@ -11,22 +11,34 @@ public class Movement_Script : MonoBehaviour
 
     public Vector2 movement;
 
+    public Animator animator;
+
     private void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
         //Constarints agaisnt diagonal movement
+       
         if (movement.x == 1 || movement.x == -1)
         {
             movement.y = 0;
+        }
+        else
+        {
+            animator.SetFloat("Vertical", movement.y);
         }
 
         if (movement.y == 1 || movement.y == -1)
         {
             movement.x = 0;
         }
-
-
+        else
+        {
+            animator.SetFloat("Horizontal", movement.x);
+        }
+        animator.SetFloat("Speed", movement.sqrMagnitude);
+       
     }
 
     private void FixedUpdate()
