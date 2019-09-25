@@ -57,25 +57,21 @@ public static class InputManager
 
     public static bool KeyW()
     {
-        Debug.Log("W Pressed");
-        return Input.GetButtonDown("Key_W");
+        return Input.GetKey(KeyCode.W);
     }
 
     public static bool KeyA()
     {
-        Debug.Log("A Pressed");
-        return Input.GetButtonDown("Key_A");
+        return Input.GetKey(KeyCode.A);
     }
 
     public static bool KeyS()
     {
-        Debug.Log("S Pressed");
-        return Input.GetButtonDown("Key_S");
+        return Input.GetKey(KeyCode.S);
     }
 
     public static bool KeyD()
     {
-        Debug.Log("D Pressed");
-        return Input.GetButtonDown("Key_D");
+        return Input.GetKey(KeyCode.D);
     }
 }
