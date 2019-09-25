@@ -4,31 +4,33 @@ using UnityEngine;
 
 public class Movement_Script : MonoBehaviour
 {
+    [Range(0, 10)]
+    public float moveSpeed = 8;
 
-        [Range(1.0f, 3.0f)]
-        public float speed;
-        private Rigidbody2D rigid;        
+    public Rigidbody2D rigid;
 
-        // Use this for initialization
-        void Start()
+    public Vector2 movement;
+
+    private void Update()
+    {
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+        //Constarints agaisnt diagonal movement
+        if (movement.x == 1 || movement.x == -1)
         {
+            movement.y = 0;
+        }
 
-            rigid = GetComponent<Rigidbody2D>();
+        if (movement.y == 1 || movement.y == -1)
+        {
+            movement.x = 0;
         }
 
 
-        void FixedUpdate()
-        {
+    }
 
-            float moveHorizontal = Input.GetAxis("Horizontal");
-
-
-            float moveVertical = Input.GetAxis("Vertical");
-
-
-            Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-
-            rigid.AddForce(movement * speed);
-        }
-
+    private void FixedUpdate()
+    {
+        rigid.MovePosition(rigid.position + movement * moveSpeed *Time.fixedDeltaTime);
+    }
 }
