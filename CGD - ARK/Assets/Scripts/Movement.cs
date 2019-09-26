@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private float m_speed;
 
+    public Animator animator;
     // Use this for initialization
     void Start()
     {
@@ -25,6 +26,7 @@ public class Movement : MonoBehaviour
         {
             case MOVEMENT.up:
                 rb.velocity = new Vector2(0, 1.0f  * (Time.fixedDeltaTime + m_speed));
+
                 break;
             case MOVEMENT.down:
                 rb.velocity = new Vector2(0, -1.0f * (Time.fixedDeltaTime + m_speed));
@@ -38,7 +40,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void stop()
+    public void Stop()
     {
         rb.velocity = new Vector2(0f, 0f);
     }
