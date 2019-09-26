@@ -4,7 +4,6 @@ using UnityEngine;
 using EventTypes;
 
 //Require component ensures that this object has a type Player data attached, if not it adds one.
-[RequireComponent(typeof(PlayerData))]
 public class Movement : MonoBehaviour
 {
 
