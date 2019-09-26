@@ -448,15 +448,15 @@ MonoBehaviour:
   sounds:
   - clip: {fileID: 8300000, guid: 7faa0a6b12c4361479039dd00e2a572d, type: 3}
     name: Test
-    volume: 0
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 6b5b365c042dcde498a6a1010143cc5e, type: 3}
-    name: Sisters
     volume: 1
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 08ad1aff6584de141860362a5d74935e, type: 3}
+    name: Sisters
+    volume: 1
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
 --- !u!1 &372370381
 GameObject:
