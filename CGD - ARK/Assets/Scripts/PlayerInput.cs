@@ -37,27 +37,7 @@ public class PlayerInput : MonoBehaviour
 
     void Walk()
     {
-        if (InputManager.KeyW())
-        {
-            Debug.Log("W WAS PRESSED.");
-            movement.walk(MOVEMENT.up);
-        }
-        else if (InputManager.KeyA())
-        {
-            Debug.Log("A WAS PRESSED.");
-            movement.walk(MOVEMENT.left);
-        }
-        else if (InputManager.KeyS())
-        {
-            Debug.Log("S WAS PRESSED.");
-            movement.walk(MOVEMENT.down);
-        }
-        else if (InputManager.KeyD())
-        {
-            Debug.Log("D WAS PRESSED.");
-            movement.walk(MOVEMENT.right);
-        }
-
+            movement.walk();
     }
 
     void Gather()

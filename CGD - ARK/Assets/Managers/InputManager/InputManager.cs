@@ -13,7 +13,7 @@ public static class InputManager
         float r = 0.0f;
         r += Input.GetAxis("J_Horizontal_" + player_id.ToString());
         r += Input.GetAxis("K_Horizontal_" + player_id.ToString());
-        return Mathf.Clamp(r, -1.0f, 1.0f);;
+        return Mathf.Clamp(r, -1.0f, 1.0f);
     }
     public static float JoystickVertical(int player_id)
     {
@@ -55,23 +55,18 @@ public static class InputManager
         return Input.GetButtonDown("Y_Button_" + player_id.ToString());
     }
 
-    public static bool KeyW()
+    public static float Horizontal()
     {
-        return Input.GetKey(KeyCode.W);
+        float r = 0.0f;
+        r = Input.GetAxis("Horizontal");
+        return r;
+    }
+    public static float Vertical()
+    {
+        float r = 0.0f;
+        Debug.Log("Vertical Axis" + Input.GetAxis("Vertical"));
+        r = Input.GetAxis("Vertical");
+        return r;
     }
 
-    public static bool KeyA()
-    {
-        return Input.GetKey(KeyCode.A);
-    }
-
-    public static bool KeyS()
-    {
-        return Input.GetKey(KeyCode.S);
-    }
-
-    public static bool KeyD()
-    {
-        return Input.GetKey(KeyCode.D);
-    }
 }
