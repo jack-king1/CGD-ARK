@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EventTypes;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private bool chaseActive;
     [SerializeField] private GameObject player;
+    [SerializeField] private float patrolDelay;
 
+    public float speed;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +28,6 @@ public class Enemy : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             player = collision.gameObject;
-
             //testing, please change sound
             AudioManager.instance.Play("Sisters");
         }
@@ -38,5 +41,15 @@ public class Enemy : MonoBehaviour
             //testing, please change sound
             AudioManager.instance.Stop("Sisters");
         }
+    }
+
+    void Chase()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.fixedDeltaTime);
+    }
+
+    void Patrol()
+    {
+
     }
 }

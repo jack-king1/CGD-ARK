@@ -34,4 +34,11 @@ namespace EventTypes
         game_scene,
         leaderboard_scene
     }
+
+    public enum ENEMYSTATE
+    {
+        patrol,
+        chase,
+        dead
+    }
 }
