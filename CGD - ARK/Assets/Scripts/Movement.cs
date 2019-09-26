@@ -19,27 +19,23 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void walk(MOVEMENT keypress)
+    public void walk()
     {
-        switch(keypress)
+        if(InputManager.Vertical() > 0 || InputManager.Vertical() < 0)
         {
-            case MOVEMENT.up:
-                rb.velocity = new Vector2(0, 1.0f  * (Time.fixedDeltaTime + m_speed));
-                break;
-            case MOVEMENT.down:
-                rb.velocity = new Vector2(0, -1.0f * (Time.fixedDeltaTime + m_speed));
-                break;
-            case MOVEMENT.left:
-                rb.velocity = new Vector2(-1.0f * (Time.fixedDeltaTime + m_speed), 0);
-                break;
-            case MOVEMENT.right:
-                rb.velocity = new Vector2(1.0f * (Time.fixedDeltaTime + m_speed), 0 );
-                break;
+            rb.velocity = new Vector2(0, InputManager.Vertical() * (Time.fixedDeltaTime + m_speed));
         }
+
+        if(InputManager.Horizontal() > 0 || InputManager.Horizontal() < 0)
+        {
+            rb.velocity = new Vector2(InputManager.Horizontal() * (Time.fixedDeltaTime + m_speed), 0 );
+        }
+        
+        
     }
 
     public void stop()
     {
-        rb.velocity = new Vector2(0f, 0f);
+        //rb.velocity = new Vector2(0f, 0f);
     }
 }
