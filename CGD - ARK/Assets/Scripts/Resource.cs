@@ -24,25 +24,7 @@ public class Resource : MonoBehaviour
     }
 
     public void Collect()
-    {
-        if (type == 1)
-        {
-            //player.ResourceScript.hunger += 20;
-        }
-        else if (type == 2)
-        {
-            //player.ResourceScript.thirst += 20;
-        }
-        else if (type == 3)
-        {
-            //player.ResourceScript.stone += 1;
-        }
-        else if (type == 4)
-        {
-            //player.ResourceScript.wood += 1;
-        }
-        else if (type == 3)
-        resource_available = false;
+    { 
         StartCoroutine(RespawnSequence());
 
         //just thought i would cahnge it to enums and switch - Jack - delete if you dont wannt it i commented it out incase of merge errors.
@@ -68,6 +50,7 @@ public class Resource : MonoBehaviour
 
     IEnumerator RespawnSequence()
     {
+        resource_available = false;
         yield return new WaitForSeconds(respawn_time);
         resource_available = true;
     }

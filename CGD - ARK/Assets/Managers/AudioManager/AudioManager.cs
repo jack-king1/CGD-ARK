@@ -9,7 +9,7 @@ using System;
 /// </summary>
 
 //To access the audio manager in another script just type AudioManager.Play("Sound Name Here");
-// To add more sounds go to the Unity Edit -> Select AudiManager Script, Increase Array Size by 1 and add drag sound into it.
+// To add more sounds go to Unity -> Select AudiManager Script which will be attached to GameManager, Increase Array Size by 1 and add drag sound into it.
 
 public class AudioManager : MonoBehaviour
 {

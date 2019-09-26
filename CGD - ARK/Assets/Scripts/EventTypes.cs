@@ -27,4 +27,18 @@ namespace EventTypes
         gathering,
         attacking
     }
+
+    public enum SCENE_TYPE
+    {
+        menu_scene,
+        game_scene,
+        leaderboard_scene
+    }
+
+    public enum ENEMYSTATE
+    {
+        patrol,
+        chase,
+        dead
+    }
 }
