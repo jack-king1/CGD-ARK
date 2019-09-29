@@ -41,4 +41,11 @@ namespace EventTypes
         chase,
         dead
     }
+
+    public enum MENU_SELECTION
+    {
+        start,
+        leaderboard,
+        exit
+    }
 }
