@@ -625,8 +625,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_randomTiles: 1
-  m_numberOfColumns: 3
-  m_numberOfRows: 3
+  m_numberOfColumns: 9
+  m_numberOfRows: 9
   tile_types:
   - {fileID: 6346455318614901074, guid: ca73f5a3e20edaf479b60c5bfb81b85d, type: 3}
   - {fileID: 8362146552324311283, guid: 98bed85e149a52d4ba76897f25369e28, type: 3}
@@ -712,7 +712,8 @@ MonoBehaviour:
   chaseActive: 0
   player: {fileID: 0}
   patrolDelay: 0
-  speed: 0
+  speed: 0.6
+  chasing: 0
 --- !u!4 &1705048956
 Transform:
   m_ObjectHideFlags: 0
