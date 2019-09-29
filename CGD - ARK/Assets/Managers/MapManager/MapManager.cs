@@ -10,32 +10,34 @@ public class MapManager : MonoBehaviour
     [SerializeField] private int m_numberOfRows;
 
     private Vector2[][] tile_Positions;
-    private GameObject[] tile_types;
+    public GameObject[] tile_types;
 
     private int col_height = 0;
     private int row_width = 0;
 
+    //Fixing
+    float width = 8.33f;
+    float height = 9.99f;
 
     private void Awake()
     {
-        //Initialise Tile Positions.
-        for (int i = 0; i < m_numberOfColumns; ++i)
+
+
+        //Create Tiles
+        for (float i = 0; i < m_numberOfColumns; ++i)
         {
-            for (int j = 0; j < m_numberOfRows; ++j)
+            for (float j = 0; j < m_numberOfRows; ++j)
             {
-                //Local Position For Readability
-                Vector2 pos;
+                GameObject temp_tile = tile_types[tile_selector()];
 
-                //Set New Tile Position
-                //Set the X Positon
-                tile_Positions[i][j].x = row_width * i - (i * (m_numberOfColumns /2));
-                pos.x = tile_Positions[i][j].x;
+                //Getting wierd behaviour so hard coded numbers, please dont change
+                //Instantiate(temp_tile, new Vector2(i * temp_tile.GetComponent<TileData>().Width(), 
+                //    j * temp_tile.GetComponent<TileData>().Height()), Quaternion.identity);
 
-                //Set the Y Position
-                tile_Positions[i][j].y = col_height * j - ( j * (m_numberOfRows / 2));
-                pos.y = tile_Positions[i][j].y;
+                Instantiate(temp_tile, new Vector2(i * width,
+                            j * height), Quaternion.identity);
 
-                Instantiate(tile_types[tile_selector()], new Vector2(pos.x, pos.y), Quaternion.identity);
+                Debug.Log("J = " + j);
             }
         }
 
