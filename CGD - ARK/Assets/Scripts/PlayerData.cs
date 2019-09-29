@@ -10,7 +10,6 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private float m_playerScore;
     [SerializeField] private PLAYERSTATE m_playerState;
 
-
     //Getters
     public int PlayerID()
     {
