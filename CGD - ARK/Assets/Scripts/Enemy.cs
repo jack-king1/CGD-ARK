@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using EventTypes;
 
+//NOTE TO JACK: MOVE PATROL AUI INTO SEPERATE SCRIPT.
+
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private bool chaseActive;
