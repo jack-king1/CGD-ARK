@@ -68,4 +68,13 @@ public static class InputManager
         return r;
     }
 
+    public static bool KeyReleased_W()
+    {
+        return Input.GetButtonUp("Key_W");
+    }
+
+    public static bool KeyReleased_S()
+    {
+        return Input.GetButtonUp("Key_S");
+    }
 }
