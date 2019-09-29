@@ -62,5 +62,31 @@ public class MenuSelection : MonoBehaviour
             default:
                 break;
         }
+
+        if(InputManager.KeyUp_Enter())
+        {
+            switch (current_selection)
+            {
+                case MENU_SELECTION.start:
+                    SceneLoader.changeScene(SCENE_TYPE.game_scene);
+                    break;
+                case MENU_SELECTION.leaderboard:
+                    SceneLoader.changeScene(SCENE_TYPE.leaderboard_scene);
+                    break;
+                case MENU_SELECTION.exit:
+                    // save any game data here
+                    #if UNITY_EDITOR
+                    // Application.Quit() does not work in the editor so
+                    // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
+                    UnityEditor.EditorApplication.isPlaying = false;
+                    #else
+                    Application.Quit();
+                    #endif
+                    break;
+                default:
+                    break;
+            }
+
+        }
     }
 }

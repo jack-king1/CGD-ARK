@@ -77,4 +77,9 @@ public static class InputManager
     {
         return Input.GetButtonUp("Key_S");
     }
+
+    public static bool KeyUp_Enter()
+    {
+        return Input.GetButtonUp("Key_Enter");
+    }
 }
