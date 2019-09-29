@@ -5,12 +5,12 @@ using UnityEngine;
 public class TileData : MonoBehaviour
 {
     private float tile_centre;
-    private Vector2 tile_positons;
+    private Vector2 tile_positions;
     private float tile_width = 8.331f;
     private float tile_height = 9.99f;
 
     //Getters
-    public Vector2 getPositon()
+    public Vector2 getPosition()
     {
         return new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
     }
@@ -32,7 +32,6 @@ public class TileData : MonoBehaviour
     {
         return tile_height;
     }
-
 
 
     //Setters

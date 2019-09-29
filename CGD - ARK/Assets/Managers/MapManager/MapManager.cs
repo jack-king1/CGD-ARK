@@ -21,8 +21,6 @@ public class MapManager : MonoBehaviour
 
     private void Awake()
     {
-
-
         //Create Tiles
         for (float i = 0; i < m_numberOfColumns; ++i)
         {
@@ -36,13 +34,12 @@ public class MapManager : MonoBehaviour
 
                 Instantiate(temp_tile, new Vector2(i * width,
                             j * height), Quaternion.identity);
-
-                Debug.Log("J = " + j);
             }
         }
-
         //After tiles have been instantiated call the camera setup function which
         // Places camera positions
+
+
     }
 
     int tile_selector()

@@ -64,7 +64,6 @@ public static class InputManager
     public static float Vertical()
     {
         float r = 0.0f;
-        Debug.Log("Vertical Axis" + Input.GetAxis("Vertical"));
         r = Input.GetAxis("Vertical");
         return r;
     }
