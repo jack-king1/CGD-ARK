@@ -53,7 +53,7 @@ public class MapManager : MonoBehaviour
         }
         else
         {
-            return Random.Range(0, tile_types.Length -1);
+            return Random.Range(0, tile_types.Length);
         }
     }
 }
