@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 8631819}
   - component: {fileID: 8631818}
   - component: {fileID: 8631821}
+  - component: {fileID: 8631822}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -191,13 +192,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 32ab0a5d64a08874fba68c6b0cb37e75, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 9951c0b205442d54fb7240f39bd8a1ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 10.24, y: 9.95}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -211,8 +212,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8631814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.17250611, y: -1.0917666, z: -1.0907702}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.09, y: -2.18, z: -1.0907702}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -237,7 +238,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &8631819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,14 +284,40 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 10.24, y: 9.95}
+    newSize: {x: 10.24, y: 9.95}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
+  m_EdgeRadius: 0
+--- !u!61 &8631822
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8631814}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.24, y: 9.95}
+    newSize: {x: 10.24, y: 9.95}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10.24, y: 9.95}
   m_EdgeRadius: 0
 --- !u!1 &82503560
 GameObject:
@@ -381,6 +408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 307143974}
+  - component: {fileID: 307143975}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -402,6 +430,18 @@ Transform:
   m_Father: {fileID: 554664216}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &307143975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307143973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31847ba0fe3e8144c9b8ae9ffa214e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &325897568
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,13 +488,13 @@ MonoBehaviour:
   sounds:
   - clip: {fileID: 8300000, guid: 7faa0a6b12c4361479039dd00e2a572d, type: 3}
     name: Test
-    volume: 1
+    volume: 0
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 08ad1aff6584de141860362a5d74935e, type: 3}
     name: Sisters
-    volume: 1
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -541,6 +581,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &445978605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 445978606}
+  - component: {fileID: 445978607}
+  m_Layer: 0
+  m_Name: MapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &445978606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445978605}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 554664216}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &445978607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445978605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcf4796f654350409fd93729696fc46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_randomTiles: 1
+  m_numberOfColumns: 9
+  m_numberOfRows: 9
+  tile_types:
+  - {fileID: 6346455318614901074, guid: ca73f5a3e20edaf479b60c5bfb81b85d, type: 3}
+  - {fileID: 8362146552324311283, guid: 98bed85e149a52d4ba76897f25369e28, type: 3}
+  - {fileID: 7497029935082597137, guid: 43e10b2674325fc43a0a89dc3d7f4717, type: 3}
 --- !u!1 &554664215
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,6 +661,7 @@ Transform:
   m_Children:
   - {fileID: 307143974}
   - {fileID: 325897569}
+  - {fileID: 445978606}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -620,6 +711,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseActive: 0
   player: {fileID: 0}
+  patrolDelay: 0
+  speed: 0.6
+  chasing: 0
 --- !u!4 &1705048956
 Transform:
   m_ObjectHideFlags: 0
@@ -671,7 +765,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 9951c0b205442d54fb7240f39bd8a1ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

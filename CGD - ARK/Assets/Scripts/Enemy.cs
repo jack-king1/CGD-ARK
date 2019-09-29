@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float patrolDelay;
 
     public float speed;
+    public bool chasing;
     
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,10 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(chasing)
+        {
+            Chase();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,6 +34,7 @@ public class Enemy : MonoBehaviour
             player = collision.gameObject;
             //testing, please change sound
             AudioManager.instance.Play("Sisters");
+            chasing = true;
         }
     }
 
@@ -40,6 +45,7 @@ public class Enemy : MonoBehaviour
             player = null;
             //testing, please change sound
             AudioManager.instance.Stop("Sisters");
+            chasing = false;
         }
     }
 
