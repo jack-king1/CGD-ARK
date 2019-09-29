@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 372370383}
   - component: {fileID: 372370382}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -629,8 +629,6 @@ MonoBehaviour:
   m_numberOfRows: 9
   tile_types:
   - {fileID: 6346455318614901074, guid: ca73f5a3e20edaf479b60c5bfb81b85d, type: 3}
-  - {fileID: 8362146552324311283, guid: 98bed85e149a52d4ba76897f25369e28, type: 3}
-  - {fileID: 7497029935082597137, guid: 43e10b2674325fc43a0a89dc3d7f4717, type: 3}
 --- !u!1 &554664215
 GameObject:
   m_ObjectHideFlags: 0
