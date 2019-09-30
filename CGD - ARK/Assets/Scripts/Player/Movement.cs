@@ -7,9 +7,6 @@ using EventTypes;
 public class Movement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    float Movementx;
-    float Movementy;
-    public GameObject weapon;
 
     [SerializeField] private float m_speed;
 
@@ -29,17 +26,7 @@ public class Movement : MonoBehaviour
         animator.SetFloat("Horizontal", rb.velocity.x);
         animator.SetFloat("Vertical", rb.velocity.y);
         animator.SetFloat("Speed", rb.velocity.magnitude);
-    }
-
-    public void attack()
-
-    {
-        if (animator.GetFloat("Horizontal") < -1)
-        {
-            weapon.
-        }
-
-
+      
     }
 
     public void Stop()
