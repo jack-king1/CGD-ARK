@@ -6,9 +6,9 @@ using EventTypes;
 //Require component ensures that this object has a type Player data attached, if not it adds one.
 public class Movement : MonoBehaviour
 {
-
-    [Range(1.0f, 3.0f)]
     private Rigidbody2D rb;
+    float Movementx;
+    float Movementy;
 
     [SerializeField] private float m_speed;
 
@@ -23,7 +23,12 @@ public class Movement : MonoBehaviour
     {
             rb.velocity = 
             new Vector2(InputManager.Horizontal() * (Time.fixedDeltaTime + m_speed), 
-                InputManager.Vertical() * (Time.fixedDeltaTime + m_speed));
+                InputManager.Vertical() * (Time.fixedDeltaTime + m_speed)); 
+
+               animator.SetFloat("Horizontal",rb.velocity.x);
+               animator.SetFloat("Vertical", rb.velocity.y);
+    
+        animator.SetFloat("Speed", rb.velocity.magnitude);
     }
 
     public void Stop()
