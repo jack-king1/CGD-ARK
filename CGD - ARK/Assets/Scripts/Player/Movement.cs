@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     float Movementx;
     float Movementy;
+    public GameObject weapon;
 
     [SerializeField] private float m_speed;
 
@@ -21,14 +22,24 @@ public class Movement : MonoBehaviour
 
     public void walk()
     {
-            rb.velocity = 
-            new Vector2(InputManager.Horizontal() * (Time.fixedDeltaTime + m_speed), 
-                InputManager.Vertical() * (Time.fixedDeltaTime + m_speed)); 
+        rb.velocity =
+        new Vector2(InputManager.Horizontal() * (Time.fixedDeltaTime + m_speed),
+            InputManager.Vertical() * (Time.fixedDeltaTime + m_speed));
 
-               animator.SetFloat("Horizontal",rb.velocity.x);
-               animator.SetFloat("Vertical", rb.velocity.y);
-    
+        animator.SetFloat("Horizontal", rb.velocity.x);
+        animator.SetFloat("Vertical", rb.velocity.y);
         animator.SetFloat("Speed", rb.velocity.magnitude);
+    }
+
+    public void attack()
+
+    {
+        if (animator.GetFloat("Horizontal") < -1)
+        {
+            weapon.
+        }
+
+
     }
 
     public void Stop()
