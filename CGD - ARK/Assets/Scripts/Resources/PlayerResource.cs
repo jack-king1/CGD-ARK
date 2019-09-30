@@ -88,11 +88,6 @@ public class PlayerResource : MonoBehaviour
         }
     }
 
-    public void takeDamage()
-    {
-        health -= 5.0f;
-    }
-
     public void ResetPlayer()
     {
         health = starting_health;
