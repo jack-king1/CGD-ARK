@@ -14,7 +14,6 @@ public class PlayerResource : MonoBehaviour
     public float thirst;
     float thirst_rate = 1f;
         
-    // Start is called before the first frame update
     void Start()
     {
         health = max_health;
@@ -22,16 +21,17 @@ public class PlayerResource : MonoBehaviour
         thirst = max_thirst;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (health < max_health && hunger > 0 && thirst > 0)
         {
+            // When not at max health, gradually restore health and lose hunger at twice the rate
             health += health_rate * Time.deltaTime;
             hunger -= (hunger_rate * 2) * Time.deltaTime;
         }
         else
         {
+            // Lose hunger gradually at normal rate
             if (hunger > 0)
             {
                 hunger -= hunger_rate * Time.deltaTime;
@@ -40,15 +40,19 @@ public class PlayerResource : MonoBehaviour
 
         if (hunger <= 0 && health > 0)
         {
+            // Lose health gradually if out of food
             health -= health_rate * Time.deltaTime;
         }
+
         if (thirst <= 0 && health > 0)
         {
+            // Lose health gradually if out of water
             health -= health_rate * Time.deltaTime;
         }
 
         if (thirst > 0)
         {
+            // Lose water gradually at normal rate
             thirst -= thirst_rate * Time.deltaTime;
         }
 
