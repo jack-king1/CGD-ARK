@@ -86,7 +86,6 @@ public class Enemy : MonoBehaviour
                     currentWaypoint = waypoints[currentWaypointCount];
                 }
                 setDelay();
-                Debug.Log("Current Waypoint Count = " + currentWaypointCount);
             }
             else
             {
@@ -98,7 +97,6 @@ public class Enemy : MonoBehaviour
     void setDelay()
     {
         patrolDelay = Random.Range(minPatrolDelay, maxPatrolDelay);
-        Debug.Log("Patrol Delay = " + patrolDelay);
     }
 
     int StartingWaypoint()

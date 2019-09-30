@@ -9,7 +9,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] private int m_numberOfColumns;
     [SerializeField] private int m_numberOfRows;
 
-    private Vector2[][] tile_Positions;
+    [SerializeField] private Transform[] tile_Positions;
     public GameObject[] tile_types;
 
     private int col_height = 0;
@@ -21,6 +21,9 @@ public class MapManager : MonoBehaviour
 
     private void Awake()
     {
+        tile_Positions = new Transform[m_numberOfColumns * m_numberOfRows];
+
+        int tile_count = 0;
         //Create Tiles
         for (float i = 0; i < m_numberOfColumns; ++i)
         {
@@ -28,18 +31,16 @@ public class MapManager : MonoBehaviour
             {
                 GameObject temp_tile = tile_types[tile_selector()];
 
-                //Getting wierd behaviour so hard coded numbers, please dont change
-                //Instantiate(temp_tile, new Vector2(i * temp_tile.GetComponent<TileData>().Width(), 
-                //    j * temp_tile.GetComponent<TileData>().Height()), Quaternion.identity);
-
                 Instantiate(temp_tile, new Vector2(i * width,
                             j * height), Quaternion.identity);
+
+                int current_tile = tile_count;
+
+                tile_Positions[current_tile] = temp_tile.transform;
+                Debug.Log("tile_position length" + tile_Positions.Length);
+                ++tile_count;
             }
         }
-        //After tiles have been instantiated call the camera setup function which
-        // Places camera positions
-
-
     }
 
     int tile_selector()
@@ -52,5 +53,20 @@ public class MapManager : MonoBehaviour
         {
             return Random.Range(0, tile_types.Length);
         }
+    }
+
+    public Transform GetTileTransform(int tile_number)
+    {
+        return tile_Positions[tile_number].transform;
+    }
+
+    public int Columns()
+    {
+        return m_numberOfColumns;
+    }
+
+    public int Rows()
+    {
+        return m_numberOfRows;
     }
 }
