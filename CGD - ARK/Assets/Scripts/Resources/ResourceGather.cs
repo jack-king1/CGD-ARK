@@ -12,7 +12,6 @@ public class ResourceGather : MonoBehaviour
         pl_resources = GetComponent<PlayerResource>();
     }
     
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown("e"))
