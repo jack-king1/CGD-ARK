@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class InGameUI : MonoBehaviour
 {
     public Text healthText;
-    public Text foodText;
-    public Text waterText;
+    public Text hungerText;
+    public Text thirstText;
 
     private GameObject player;
     private GameObject enemy;
@@ -15,27 +15,20 @@ public class InGameUI : MonoBehaviour
     PlayerResource resourceScript;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         player = GameObject.FindWithTag("Player");
         resourceScript = player.GetComponent<PlayerResource>();
+
+        healthText.text = resourceScript.getHealth().ToString();
+        hungerText.text = resourceScript.getHunger().ToString();
+        thirstText.text = resourceScript.getThirst().ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void updateGameUI()
     {
-        healthText.text = Mathf.RoundToInt(resourceScript.health).ToString();
-        waterText.text = Mathf.RoundToInt(resourceScript.thirst).ToString();
-        foodText.text = Mathf.RoundToInt(resourceScript.hunger).ToString();
+        healthText.text = resourceScript.getHealth().ToString();
+        hungerText.text = resourceScript.getHunger().ToString();
+        thirstText.text = resourceScript.getThirst().ToString();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            resourceScript.health--;
-        }
-    }
-
-   
-    
 }

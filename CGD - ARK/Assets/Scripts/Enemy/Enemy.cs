@@ -64,12 +64,12 @@ public class Enemy : MonoBehaviour
 
     void Chase()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.fixedDeltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
     void Patrol()
     {
-        transform.position = Vector2.MoveTowards(transform.position, currentWaypoint.position, speed * Time.fixedDeltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, currentWaypoint.position, speed * Time.deltaTime);
 
         if (Vector2.Distance(gameObject.transform.position, currentWaypoint.transform.position) < 0.2f)
         {
