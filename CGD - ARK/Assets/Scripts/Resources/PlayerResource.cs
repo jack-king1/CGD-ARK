@@ -38,11 +38,11 @@ public class PlayerResource : MonoBehaviour
             }
         }
 
-        if (hunger <= 0)
+        if (hunger <= 0 && health > 0)
         {
             health -= health_rate * Time.deltaTime;
         }
-        if (thirst <= 0)
+        if (thirst <= 0 && health > 0)
         {
             health -= health_rate * Time.deltaTime;
         }
