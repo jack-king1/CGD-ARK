@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private float m_speed;
 
+    public Animator animator;
     // Use this for initialization
     void Start()
     {
@@ -25,7 +26,7 @@ public class Movement : MonoBehaviour
                 InputManager.Vertical() * (Time.fixedDeltaTime + m_speed));
     }
 
-    public void stop()
+    public void Stop()
     {
         //rb.velocity = new Vector2(0f, 0f);
     }
