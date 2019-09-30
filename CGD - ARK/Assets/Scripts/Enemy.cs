@@ -24,11 +24,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Generate a random start point enemies arnt all on the same loop.
-
-        //currentWaypoint = static_waypoints[StartingWaypoint()];
-        currentWaypoint = waypoints[0];
-
+        currentWaypoint = waypoints[StartingWaypoint()];
     }
 
     // Update is called once per frame
