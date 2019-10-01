@@ -520,6 +520,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4409696091120602664, guid: 8098919e5c3bf8747a0c3fd3faaa65ed,
+        type: 3}
+      propertyPath: m_speed
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 4409696091120602666, guid: 8098919e5c3bf8747a0c3fd3faaa65ed,
         type: 3}
       propertyPath: m_Offset.x

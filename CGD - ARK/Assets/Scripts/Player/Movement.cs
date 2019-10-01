@@ -19,9 +19,13 @@ public class Movement : MonoBehaviour
 
     public void walk()
     {
-        rb.velocity =
-        new Vector2(InputManager.Horizontal() * (Time.fixedDeltaTime + m_speed),
-            InputManager.Vertical() * (Time.fixedDeltaTime + m_speed));
+        
+        Vector2 movement = new Vector2(InputManager.Horizontal(),
+            InputManager.Vertical()).normalized;
+
+        rb.velocity = (movement * m_speed * Time.fixedDeltaTime); 
+
+
 
         animator.SetFloat("Horizontal", rb.velocity.x);
         animator.SetFloat("Vertical", rb.velocity.y);
