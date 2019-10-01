@@ -235,7 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerManager: {fileID: 676753615}
   audioManager: {fileID: 147659235}
-  mapManager: {fileID: 1154166456}
+  mapManager: {fileID: 0}
 --- !u!1001 &1126370001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -303,14 +303,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1121160380391096104, guid: 661192250b9276a45854e602da509c74,
+        type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 661192250b9276a45854e602da509c74, type: 3}
---- !u!1 &1154166456 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1121160380509988263, guid: 661192250b9276a45854e602da509c74,
-    type: 3}
-  m_PrefabInstance: {fileID: 1126370001}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2510929510124691152
 PrefabInstance:
   m_ObjectHideFlags: 0
