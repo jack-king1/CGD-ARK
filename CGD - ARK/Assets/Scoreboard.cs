@@ -35,7 +35,7 @@ public class Scoreboard : MonoBehaviour
         Init();
         if(playerScores.ContainsKey (username) == false)
         {
-            playerScores[username] = new Dictionary<string, int>();
+            playerScores[username] = new Dictionary<string , int> (
         }
         playerScores[username] = value;
     }
