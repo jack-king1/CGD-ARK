@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
     private Rigidbody2D rb;
     private Movement movement;
     private PlayerData pd;
+    bool footsteps_playing;
 
     private void Awake()
     {
@@ -24,7 +25,6 @@ public class PlayerInput : MonoBehaviour
         {
             case PLAYERSTATE.walking:
                 Walk();
-
                 break;
             case PLAYERSTATE.gathering:
                 Gather();
@@ -35,6 +35,22 @@ public class PlayerInput : MonoBehaviour
             default:
                 break;
         }
+
+        if(InputManager.Horizontal() >0 || InputManager.Horizontal() < 0 || InputManager.Vertical() < 0 || InputManager.Vertical() > 0)
+        {
+            if(!footsteps_playing)
+            {
+                AudioManager.instance.Play("footsteps");
+                footsteps_playing = true;
+            }
+            
+        }
+        else
+        {
+            AudioManager.instance.Stop("footsteps");
+            footsteps_playing = false;
+        }
+
     }
 
     void Walk()
