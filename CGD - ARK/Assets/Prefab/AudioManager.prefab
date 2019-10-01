@@ -126,8 +126,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 667a375ebadfc1040958d9e6fb9c467e, type: 3}
     name: footsteps
-    volume: 1
-    pitch: 1
+    volume: 0.2
+    pitch: 5
     fadeInTime: 0
     fadeOutTime: 0
     loop: 0

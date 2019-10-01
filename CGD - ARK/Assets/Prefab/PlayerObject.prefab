@@ -214,6 +214,11 @@ PrefabInstance:
       propertyPath: pr
       value: 
       objectReference: {fileID: 4155124545065620690}
+    - target: {fileID: 1805159762100955884, guid: f790b05c32b897848b10745d87a9c91e,
+        type: 3}
+      propertyPath: damage
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1363764101046611577, guid: f790b05c32b897848b10745d87a9c91e,
         type: 3}
       propertyPath: m_Layer
@@ -222,7 +227,7 @@ PrefabInstance:
     - target: {fileID: 1363764101046611578, guid: f790b05c32b897848b10745d87a9c91e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1363764099778096083, guid: f790b05c32b897848b10745d87a9c91e,
         type: 3}

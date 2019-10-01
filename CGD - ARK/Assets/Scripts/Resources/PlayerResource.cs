@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//To Do
+//Ideally the health/hunger and thirst need to be in another script. e.g. PlayerData.
+//Then we can use the script for other objects.
 public class PlayerResource : MonoBehaviour
 {
-    public int max_health;
-    public float health;
+    public int max_health; //to do
+    public float health; //to do
+
 
     float health_rate = 0.5f;
-    public float max_hunger;
-    public float hunger;
+    public float max_hunger;//to do
+    public float hunger;//to do
     float hunger_rate = 1f;
-    public float max_thirst;
-    public float thirst;
+    public float max_thirst;//to do
+    public float thirst;//to do
     float thirst_rate = 1f;
 
     [SerializeField] private float starting_health;

@@ -53,6 +53,9 @@ public class Combat : MonoBehaviour
     public void TakeDamage(float dmg)
     {
 
+        Debug.Log("Taking Dmg: " + dmg);
+        playerResource.setHealth(playerResource.getHealth() - dmg);
+        Debug.Log("Current health: " + playerResource.getHealth());
         //Death noise rarawrda wdads
         if (playerResource.getHealth() <= 0)
         {
