@@ -96,5 +96,6 @@ public static class InputManager
     public static bool Key_Space()
     {
         return Input.GetButton("Key_Space");
+
     }
 }

@@ -70,11 +70,11 @@ public class AudioManager : MonoBehaviour
     {
         float interpolater = 0.0f;
         Sound s = Array.Find(sounds, sound => sound.name == sound_name);
-        if(s.volume < volume)
-        {
-            interpolater += Time.deltaTime;
-            s.volume = Mathf.Lerp(s.volume, volume, interpolater);
-        }
+        //if(s.volume < volume)
+        //{
+        //    interpolater += Time.deltaTime;
+        //    s.volume = Mathf.Lerp(s.volume, volume, interpolater);
+        //}
     }
 
     public void FadeOut(string sound_name)
