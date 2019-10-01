@@ -19,10 +19,9 @@ public class MapManager : MonoBehaviour
     float width = 8.33f;
     float height = 9.99f;
 
-    private void Awake()
+    public void Awake()
     {
         tile_Positions = new Transform[m_numberOfColumns * m_numberOfRows];
-
         int tile_count = 0;
         //Create Tiles
         for (float i = 0; i < m_numberOfColumns; ++i)
@@ -37,7 +36,6 @@ public class MapManager : MonoBehaviour
                 int current_tile = tile_count;
 
                 tile_Positions[current_tile] = temp_tile.transform;
-                Debug.Log("tile_position length" + tile_Positions.Length);
                 ++tile_count;
             }
         }

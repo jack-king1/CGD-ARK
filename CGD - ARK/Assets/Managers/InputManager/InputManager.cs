@@ -78,13 +78,24 @@ public static class InputManager
         return Input.GetButtonUp("Key_S");
     }
 
+    public static bool KeyReleased_A()
+    {
+        return Input.GetButtonUp("Key_A");
+    }
+
+    public static bool KeyReleased_D()
+    {
+        return Input.GetButtonUp("Key_D");
+    }
+
     public static bool KeyUp_Enter()
     {
         return Input.GetButtonUp("Key_Enter");
     }
 
-    public static bool KeyDown_Space()
+    public static bool Key_Space()
     {
-        return Input.GetButtonDown("Key_Space");
+        return Input.GetButton("Key_Space");
+
     }
 }
