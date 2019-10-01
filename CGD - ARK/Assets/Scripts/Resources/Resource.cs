@@ -9,49 +9,26 @@ public class Resource : MonoBehaviour
     public float respawn_time = 60;
     public int type = 0;
     private RESOURCETYPE m_resourceType = RESOURCETYPE.none; //Jack
-    GameObject player;
+    SpriteRenderer sprite_rend;
+    public Sprite empty_spr;
+    public Sprite full_spr;
 
-    // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        sprite_rend = GetComponent<SpriteRenderer>();
     }
 
     public void Collect()
-    { 
+    {
         StartCoroutine(RespawnSequence());
-
-        //just thought i would cahnge it to enums and switch - Jack - delete if you dont wannt it i commented it out incase of merge errors.
-        //switch(m_resourceType)
-        //{
-        //    case RESOURCETYPE.hunger:
-        //        //code here.
-        //        break;
-        //    case RESOURCETYPE.thirst:
-        //        //code here
-        //        break;
-        //    case RESOURCETYPE.stone:
-        //        //code here
-        //        break;
-        //    case RESOURCETYPE.wood:
-        //        //code here
-        //        break;
-        //    default:
-        //        break;
-        //}
-
     }
 
     IEnumerator RespawnSequence()
     {
         resource_available = false;
+        sprite_rend.sprite = empty_spr;
         yield return new WaitForSeconds(respawn_time);
         resource_available = true;
+        sprite_rend.sprite = full_spr;
     }
 } 
