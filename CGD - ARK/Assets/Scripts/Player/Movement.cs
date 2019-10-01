@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
 
     public void walk()
     {
-        
+
         Vector2 movement = new Vector2(InputManager.Horizontal(),
             InputManager.Vertical()).normalized;
 
@@ -30,11 +30,12 @@ public class Movement : MonoBehaviour
         animator.SetFloat("Horizontal", rb.velocity.x);
         animator.SetFloat("Vertical", rb.velocity.y);
         animator.SetFloat("Speed", rb.velocity.magnitude);
-      
+
     }
 
     public void Stop()
     {
+        AudioManager.instance.Stop("footsteps");
         //rb.velocity = new Vector2(0f, 0f);
     }
 }

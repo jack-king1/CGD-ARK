@@ -54,6 +54,23 @@ public class Combat : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         pr.setHealth(pr.getHealth() - dmg);
+
+        // play damage audio
+        int random = Random.Range(1, 4);
+
+        if(random == 1)
+        {
+            AudioManager.instance.Play("attack_1");
+        }
+        else if (random == 2)
+        {
+            AudioManager.instance.Play("attack_2");
+        }
+        else if (random == 3)
+        {
+            AudioManager.instance.Play("attack_3");
+        }
+
         //Call knockback here
         //
     }

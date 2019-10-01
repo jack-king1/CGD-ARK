@@ -15,6 +15,7 @@ public class MenuSelection : MonoBehaviour
     private void Start()
     {
         current_selection = MENU_SELECTION.start;
+        AudioManager.instance.Play("background_menu");
     }
 
     private void Update()
@@ -24,21 +25,28 @@ public class MenuSelection : MonoBehaviour
             if(current_selection == MENU_SELECTION.start)
             {
                 current_selection = MENU_SELECTION.exit;
+                AudioManager.instance.Play("menu_option_switch");
             }
             else
             {
+               
                 current_selection -= 1;
+                AudioManager.instance.Play("menu_option_switch");
             }
         }
         else if(InputManager.KeyReleased_S())
         {
             if (current_selection == MENU_SELECTION.exit)
             {
+                
                 current_selection = MENU_SELECTION.start;
+                AudioManager.instance.Play("menu_option_switch");
             }
             else
             {
+                
                 current_selection += 1;
+                AudioManager.instance.Play("menu_option_switch");
             }
         }
 
@@ -69,6 +77,8 @@ public class MenuSelection : MonoBehaviour
             {
                 case MENU_SELECTION.start:
                     SceneLoader.changeScene(SCENE_TYPE.game_scene);
+                    AudioManager.instance.Stop("background_menu");
+                    AudioManager.instance.Play("background_game");
                     break;
                 case MENU_SELECTION.leaderboard:
                     SceneLoader.changeScene(SCENE_TYPE.leaderboard_scene);

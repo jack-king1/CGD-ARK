@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         {
             player = collision.gameObject;
             //testing, please change sound
-            AudioManager.instance.Play("Sisters");
+            AudioManager.instance.Play("player_hit");
             chasing = true;
         }
     }
@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
         {
             player = null;
             //testing, please change sound
-            AudioManager.instance.Stop("Sisters");
+            AudioManager.instance.Stop("player_hit");
             chasing = false;
         }
     }
