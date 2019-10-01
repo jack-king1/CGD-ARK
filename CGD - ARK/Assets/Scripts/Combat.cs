@@ -29,6 +29,7 @@ public class Combat : MonoBehaviour
         {
             if(InputManager.KeyDown_Space())
             {
+                Debug.Log("Space Pressed");
                 Collider2D[] thingsToDamage = Physics2D.OverlapCircleAll(atkPos.position, atkRadius, whatIsEnemy );
                 for(int i = 0; i < thingsToDamage.Length; ++i)
                 {
@@ -53,12 +54,19 @@ public class Combat : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         pr.setHealth(pr.getHealth() - dmg);
+        //Call knockback here
+        //
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(atkPos.position, atkRadius);
+    }
+
+    void Knockback()
+    {
+
     }
 
 }
