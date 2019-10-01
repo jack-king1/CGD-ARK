@@ -37,7 +37,6 @@ public class ResourceGather : MonoBehaviour
                     {
                         //player.ResourceScript.wood += 1;
                     }
-
                     resourceScript.Collect();
                 }
             }

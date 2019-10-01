@@ -6,6 +6,8 @@ TagManager:
   tags:
   - resource
   - Tile
+  - GameManager
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -23,6 +23,7 @@ public class PlayerInput : MonoBehaviour
         {
             case PLAYERSTATE.walking:
                 Walk();
+
                 break;
             case PLAYERSTATE.gathering:
                 Gather();

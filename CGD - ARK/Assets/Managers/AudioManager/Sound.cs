@@ -13,6 +13,12 @@ public class Sound
     [Range(0.1f,20.0f)]
     public float pitch;
 
+    [Range(0.1f, 5.0f)]
+    public float fadeInTime;
+
+    [Range(0.1f, 5.0f)]
+    public float fadeOutTime;
+
     public bool loop;
 
     [HideInInspector]

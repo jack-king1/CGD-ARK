@@ -7,7 +7,6 @@ using EventTypes;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private bool chaseActive;
     [SerializeField] private GameObject player;
     [SerializeField] private float patrolDelay;
     [SerializeField] private float minPatrolDelay;
@@ -34,11 +33,14 @@ public class Enemy : MonoBehaviour
         if(chasing)
         {
             Chase();
+           
         }
         else
         {
             Patrol();
         }
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,8 +49,9 @@ public class Enemy : MonoBehaviour
         {
             player = collision.gameObject;
             //testing, please change sound
-            AudioManager.instance.Play("Sisters");
+            //AudioManager.instance.Play("Sisters");
             chasing = true;
+            Debug.Log(chasing);
         }
     }
 
@@ -58,7 +61,7 @@ public class Enemy : MonoBehaviour
         {
             player = null;
             //testing, please change sound
-            AudioManager.instance.Stop("Sisters");
+            //AudioManager.instance.Stop("Sisters");
             chasing = false;
         }
     }
