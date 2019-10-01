@@ -52,17 +52,27 @@ public class Combat : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-        Debug.Log("Took Damage: " + dmg);
-        Debug.Log("Current Health: " + playerResource.getHealth());
-        playerResource.setHealth(playerResource.getHealth() - dmg);
 
-        if(playerResource.getHealth() <= 0)
+        //Death noise rarawrda wdads
+        if (playerResource.getHealth() <= 0)
         {
-            //Death noise rarawrda wdads
             Destroy(gameObject);
+            AudioManager.instance.Play("PlayerDeath");
         }
-
-        //Call knockback here
+        Debug.Log("Current Health: " + playerResource.getHealth());
+        int random = Random.Range(1, 4);
+        if (random == 1)
+        {
+            AudioManager.instance.Play("attack_1");
+        }
+        else if (random == 2)
+        {
+            AudioManager.instance.Play("attack_2");
+        }
+        else if (random == 3)
+        {
+            AudioManager.instance.Play("attack_3");
+        }
     }
 
     private void OnDrawGizmosSelected()

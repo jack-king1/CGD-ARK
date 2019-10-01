@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
     private Rigidbody2D rb;
     private Movement movement;
     private PlayerData pd;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,7 +39,8 @@ public class PlayerInput : MonoBehaviour
 
     void Walk()
     {
-            movement.walk();
+        movement.walk();
+       
     }
 
     void Gather()

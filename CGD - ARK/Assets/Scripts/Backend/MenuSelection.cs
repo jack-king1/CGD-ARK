@@ -17,6 +17,7 @@ public class MenuSelection : MonoBehaviour
     private void Start()
     {
         current_selection = MENU_SELECTION.start;
+        AudioManager.instance.Play("background_menu");
     }
 
     private void Update()
@@ -33,21 +34,28 @@ public class MenuSelection : MonoBehaviour
             if (current_selection == MENU_SELECTION.start)
             {
                 current_selection = MENU_SELECTION.exit;
+                AudioManager.instance.Play("menu_option_switch");
             }
             else
             {
+               
                 current_selection -= 1;
+                AudioManager.instance.Play("menu_option_switch");
             }
         }
         else if (InputManager.KeyReleased_S())
         {
             if (current_selection == MENU_SELECTION.exit)
             {
+                
                 current_selection = MENU_SELECTION.start;
+                AudioManager.instance.Play("menu_option_switch");
             }
             else
             {
+                
                 current_selection += 1;
+                AudioManager.instance.Play("menu_option_switch");
             }
         }
         if (InputManager.KeyUp_Enter())
