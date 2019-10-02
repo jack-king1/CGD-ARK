@@ -29,7 +29,7 @@ public class MenuSelection : MonoBehaviour
     private void menuSelection()
     {
 
-        if (InputManager.KeyReleased_W())
+        if (InputManager.KeyReleased_W() || InputManager.DPAD_Up())
         {
             if (current_selection == MENU_SELECTION.start)
             {
@@ -43,7 +43,7 @@ public class MenuSelection : MonoBehaviour
                 AudioManager.instance.Play("menu_option_switch");
             }
         }
-        else if (InputManager.KeyReleased_S())
+        else if (InputManager.KeyReleased_S() || InputManager.DPAD_Down())
         {
             if (current_selection == MENU_SELECTION.exit)
             {
@@ -58,7 +58,7 @@ public class MenuSelection : MonoBehaviour
                 AudioManager.instance.Play("menu_option_switch");
             }
         }
-        if (InputManager.KeyUp_Enter())
+        if (InputManager.KeyUp_Enter() || InputManager.NES_A())
         {
             selectionMade();
         }
