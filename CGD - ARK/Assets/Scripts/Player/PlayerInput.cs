@@ -43,7 +43,6 @@ public class PlayerInput : MonoBehaviour
                 AudioManager.instance.Play("footsteps");
                 footsteps_playing = true;
             }
-            
         }
         else
         {

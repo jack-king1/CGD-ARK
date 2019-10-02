@@ -14,7 +14,7 @@ public class ResourceGather : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown("e"))
+        if (InputManager.Key_Space())
         {
             for (int i = 0; i < resources.Count; i++)
             {

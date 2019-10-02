@@ -188,3 +188,11 @@ MonoBehaviour:
     fadeOutTime: 0
     loop: 0
     source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 6152e168383f2424b84690bd0b2b3e00, type: 3}
+    name: Test
+    volume: 1
+    pitch: 1
+    fadeInTime: 0
+    fadeOutTime: 0
+    loop: 0
+    source: {fileID: 0}
