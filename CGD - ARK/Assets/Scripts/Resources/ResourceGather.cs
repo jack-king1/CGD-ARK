@@ -14,7 +14,7 @@ public class ResourceGather : MonoBehaviour
     
     void Update()
     {
-        if (InputManager.Key_Space())
+        if (InputManager.Key_Space() || InputManager.NES_A())
         {
             for (int i = 0; i < resources.Count; i++)
             {

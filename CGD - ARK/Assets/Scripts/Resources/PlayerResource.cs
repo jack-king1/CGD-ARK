@@ -5,134 +5,95 @@ using UnityEngine;
 //To Do
 //Ideally the health/hunger and thirst need to be in another script. e.g. PlayerData.
 //Then we can use the script for other objects.
+[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(Hunger))]
+[RequireComponent(typeof(Thirst))]
 public class PlayerResource : MonoBehaviour
 {
-    public int max_health; //to do
-    public float health; //to do
-
-
-    float health_rate = 0.5f;
-    public float max_hunger;//to do
-    public float hunger;//to do
-    float hunger_rate = 1f;
-    public float max_thirst;//to do
-    public float thirst;//to do
-    float thirst_rate = 1f;
-
-    [SerializeField] private float starting_health;
-    [SerializeField] private float starting_hunger;
-    [SerializeField] private float starting_thirst;
+    [SerializeField] private Health health;
+    [SerializeField] private Hunger hunger;
+    [SerializeField] private Thirst thirst;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = max_health;
-        hunger = max_hunger;
-        thirst = max_thirst;
+        health = gameObject.GetComponent<Health>();
+        hunger = gameObject.GetComponent<Hunger>();
+        thirst = gameObject.GetComponent<Thirst>();
     }
 
     void Update()
     {
-        if (health < max_health && hunger > 0 && thirst > 0)
+        if (health.currentHealth() < health.maxHealth() 
+            && hunger.currentHunger() > 0 
+            && thirst.currentThirst() > 0)
         {
             // When not at max health, gradually restore health and lose hunger at twice the rate
-            health += health_rate * Time.deltaTime;
-            hunger -= (hunger_rate * 2) * Time.deltaTime;
+            health.addHealth(health.healthRate() * Time.deltaTime);
+            hunger.minusHunger((hunger.hungerRate() * 2) * Time.deltaTime);
         }
         else
         {
             // Lose hunger gradually at normal rate
-            if (hunger > 0)
+            if (hunger.currentHunger() > 0)
             {
-                hunger -= hunger_rate * Time.deltaTime;
+                hunger.minusHunger(hunger.hungerRate() * Time.deltaTime);
             }
         }
 
-        if (hunger <= 0 && health > 0)
+        if (hunger.currentHunger() <= 0 && health.currentHealth() > 0)
         {
             // Lose health gradually if out of food
-            health -= health_rate * Time.deltaTime;
+            health.minusHealth(health.healthRate() * Time.deltaTime);
         }
 
-        if (thirst <= 0 && health > 0)
+        if (thirst.currentThirst() <= 0 && health.currentHealth() > 0)
         {
             // Lose health gradually if out of water
-            health -= health_rate * Time.deltaTime;
+            health.minusHealth(health.healthRate() * Time.deltaTime);
         }
 
-        if (thirst > 0)
+        if (thirst.currentThirst() > 0)
         {
             // Lose water gradually at normal rate
-            thirst -= thirst_rate * Time.deltaTime;
+            thirst.minusThirst(thirst.thirstRate() * Time.deltaTime);
         }
     }
 
     public void Eat(int val)
     {
-        if (hunger < max_hunger)
+        if (hunger.currentHunger() < hunger.maxHunger())
         {
-            if (hunger + val >= max_hunger)
+            if (hunger.currentHunger() + val >= hunger.maxHunger())
             {
-                hunger = max_hunger;
+                hunger.setHunger(hunger.maxHunger());
             }
             else
             {
-                hunger += val;
+                hunger.addHunger(val);
             }
         }
     }
 
     public void Drink(int val)
     {
-        if (thirst < max_thirst)
+        if (thirst.currentThirst() < thirst.maxThirst())
         {
-            if (thirst + val >= max_thirst)
+            if (thirst.currentThirst() + val >= thirst.maxThirst())
             {
-                thirst = max_thirst;
+                thirst.setThirst(thirst.maxThirst());
             }
             else
             {
-                thirst += val;
+                thirst.addThirst(val);
             }
         }
     }
 
     public void ResetPlayer()
     {
-        health = starting_health;
-        hunger = starting_hunger;
-        thirst = starting_thirst;
-    }
-
-    //Getters
-    public float getHealth()
-    {
-        return health;
-    }
-
-    public float getHunger()
-    {
-        return hunger;
-    }
-
-    public float getThirst()
-    {
-        return thirst;
-    }
-
-    //Setters
-    public void setHealth(float _health)
-    {
-        health = _health;
-    }
-
-    public void setHunger(float _hunger)
-    {
-        hunger = _hunger;
-    }
-
-    public void setThirst(float _thirst)
-    {
-        thirst = _thirst;
+        health.setHealth(health.startingHealth());
+        hunger.setHunger(hunger.startingHunger());
+        thirst.setThirst(thirst.startingThirst());
     }
 }

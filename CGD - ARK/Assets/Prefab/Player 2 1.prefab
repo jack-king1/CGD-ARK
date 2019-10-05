@@ -341,6 +341,9 @@ GameObject:
   - component: {fileID: 1363764100717164749}
   - component: {fileID: 4373422385668319889}
   - component: {fileID: 1805159762100955884}
+  - component: {fileID: 3862815790265782579}
+  - component: {fileID: -4169613037143073689}
+  - component: {fileID: 7932040483634398721}
   m_Layer: 0
   m_Name: Player 2 1
   m_TagString: Player
@@ -451,7 +454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 519b5712cf385624d9ff8a75ba778116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerID: 0
   m_playerScore: 0
   m_playerState: 0
 --- !u!114 &1216353655639357638
@@ -588,10 +590,57 @@ MonoBehaviour:
   startAtkDelay: 0.3
   damage: 10
   damageMultiplier: 1
-  playerResource: {fileID: 0}
   atkPos: {fileID: 3936237924344173265}
   atkRadius: 0.96
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 0
   thingsToDamage: []
+--- !u!114 &3862815790265782579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199548551814622168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e448be396bf7ef947976f8814cd29df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starting_thirst: 100
+  max_thirst: 100
+  thirst: 100
+  thirst_rate: 1
+--- !u!114 &-4169613037143073689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199548551814622168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f5121f059ff3a48aca1c1912b054bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starting_hunger: 100
+  max_hunger: 100
+  hunger: 100
+  hunger_rate: 1
+--- !u!114 &7932040483634398721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199548551814622168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d557468a75f10c49b83fc1f8b37c742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starting_health: 100
+  max_health: 100
+  health: 100
+  health_rate: 0.5

@@ -42,6 +42,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bfc500b662f8f34e9b24ff8d6f4f137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
   max_health: 100
   health: 80
   max_hunger: 0
@@ -51,6 +52,42 @@ MonoBehaviour:
   starting_health: 0
   starting_hunger: 0
   starting_thirst: 0
+--- !u!114 &909957504503059201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6087417565735968914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d557468a75f10c49b83fc1f8b37c742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &511179665845869636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6087417565735968914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f5121f059ff3a48aca1c1912b054bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2172946992916702475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6087417565735968914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e448be396bf7ef947976f8814cd29df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6087417566217433255
 GameObject:
   m_ObjectHideFlags: 0

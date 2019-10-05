@@ -70,7 +70,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 558d6b5beb0e44d47b0809c8701dfbc2, type: 3}
     name: background_menu
-    volume: 1
+    volume: 0.1
     pitch: 1
     fadeInTime: 0
     fadeOutTime: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 78024ba905bd3bc49b6f9ad0b2e48be9, type: 3}
     name: background_game
-    volume: 1
+    volume: 0.1
     pitch: 1
     fadeInTime: 0
     fadeOutTime: 0
