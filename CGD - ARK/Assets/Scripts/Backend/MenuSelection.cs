@@ -13,6 +13,8 @@ public class MenuSelection : MonoBehaviour
     private MENU_SELECTION current_selection;
 
     public GameObject gameManager;
+    private float DPAD_Delay = 0.2f;
+    private float currentDelay = 0.0f;
 
     private void Start()
     {
@@ -24,44 +26,48 @@ public class MenuSelection : MonoBehaviour
     {
         menuSelection();
         menuColors();
+        selectionDelay();
     }
 
     private void menuSelection()
     {
-
         if (InputManager.KeyReleased_W() || InputManager.DPAD_Up())
         {
-            if (current_selection == MENU_SELECTION.start)
+            if (current_selection == MENU_SELECTION.start && currentDelay <= 0)
             {
                 current_selection = MENU_SELECTION.exit;
                 AudioManager.instance.Play("menu_option_switch");
+                currentDelay = DPAD_Delay;
             }
-            else
+            else if(currentDelay <= 0)
             {
-               
                 current_selection -= 1;
                 AudioManager.instance.Play("menu_option_switch");
+                currentDelay = DPAD_Delay;
             }
         }
         else if (InputManager.KeyReleased_S() || InputManager.DPAD_Down())
         {
-            if (current_selection == MENU_SELECTION.exit)
+            if (current_selection == MENU_SELECTION.exit && currentDelay <= 0)
             {
                 
                 current_selection = MENU_SELECTION.start;
                 AudioManager.instance.Play("menu_option_switch");
+                currentDelay = DPAD_Delay;
             }
-            else
+            else if(currentDelay <= 0)
             {
                 
                 current_selection += 1;
                 AudioManager.instance.Play("menu_option_switch");
+                currentDelay = DPAD_Delay;
             }
         }
         if (InputManager.KeyUp_Enter() || InputManager.NES_A())
         {
             selectionMade();
         }
+        
     }
 
     private void selectionMade()
@@ -111,6 +117,18 @@ public class MenuSelection : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    public void selectionDelay()
+    {
+        if (currentDelay > 0)
+        {
+            currentDelay -= Time.deltaTime;
+        }
+        else
+        {
+            currentDelay = 0;
         }
     }
 }

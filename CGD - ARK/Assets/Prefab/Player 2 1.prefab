@@ -591,7 +591,7 @@ MonoBehaviour:
   damage: 10
   damageMultiplier: 1
   atkPos: {fileID: 3936237924344173265}
-  atkRadius: 0.96
+  atkRadius: 0.72
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 0
