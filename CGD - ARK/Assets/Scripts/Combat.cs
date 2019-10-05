@@ -78,7 +78,6 @@ public class Combat : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-
         Debug.Log("Taking Dmg: " + dmg);
         health.setHealth(health.currentHealth() - dmg);
         Debug.Log("Current health: " + health.currentHealth());
@@ -94,7 +93,7 @@ public class Combat : MonoBehaviour
             else
             {
                 //play enemy death sound
-                AudioManager.instance.Play("PlayerDeath");
+                AudioManager.instance.Play("death");
             }
             AudioManager.instance.Play("PlayerDeath");
             //End game scene here with play again options.
