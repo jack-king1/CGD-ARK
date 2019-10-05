@@ -28,7 +28,7 @@ public class Combat : MonoBehaviour
     {
         if(atkDelay <= 0)
         {
-            if(InputManager.Key_Space())
+            if(InputManager.Key_Space() || InputManager.NES_A())
             {
                 Debug.Log("Space Pressed");
                 thingsToDamage = Physics2D.OverlapCircleAll(atkPos.position, atkRadius, whatIsEnemy );

@@ -65,6 +65,9 @@ public class PlayerInput : MonoBehaviour
 
     void Attack()
     {
-
+        if(InputManager.NES_A())
+        {
+            Debug.Log("NES A Pressed");
+        }
     }
 }
