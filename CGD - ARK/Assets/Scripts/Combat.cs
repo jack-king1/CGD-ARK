@@ -78,10 +78,8 @@ public class Combat : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-
         Debug.Log("Taking Dmg: " + dmg);
         health.setHealth(health.currentHealth() - dmg);
-        updateUI();
         Debug.Log("Current health: " + health.currentHealth());
         //Death noise rarawrda wdads
         if (health.currentHealth() <= 0)
@@ -95,7 +93,7 @@ public class Combat : MonoBehaviour
             else
             {
                 //play enemy death sound
-                AudioManager.instance.Play("PlayerDeath");
+                AudioManager.instance.Play("death");
             }
             AudioManager.instance.Play("PlayerDeath");
             //End game scene here with play again options.
@@ -122,12 +120,6 @@ public class Combat : MonoBehaviour
     }
 
     void Knockback()
-    {
-
-    }
-
-    //Tell UI we have taken damage.
-    public void updateUI()
     {
 
     }

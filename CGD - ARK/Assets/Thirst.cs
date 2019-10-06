@@ -46,7 +46,7 @@ public class Thirst : MonoBehaviour
 
     public void minusThirst(float thirst_to_lose)
     {
-        thirst += thirst_to_lose;
+        thirst -= thirst_to_lose;
     }
 
     public void setThirst(float new_thirst)
