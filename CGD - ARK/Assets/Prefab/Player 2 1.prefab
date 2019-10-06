@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 3862815790265782579}
   - component: {fileID: -4169613037143073689}
   - component: {fileID: 7932040483634398721}
+  - component: {fileID: -423463878075091584}
   m_Layer: 0
   m_Name: Player 2 1
   m_TagString: Player
@@ -644,3 +645,18 @@ MonoBehaviour:
   max_health: 100
   health: 100
   health_rate: 0.5
+--- !u!114 &-423463878075091584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199548551814622168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a917e7121c233749a5c3b2539548a95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapManager: {fileID: 0}
+  offsetX: 4.25
+  offsetY: 5
