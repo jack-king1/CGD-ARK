@@ -14,7 +14,7 @@ public class ResourceGather : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown("e"))
+        if (InputManager.Key_Space() || InputManager.NES_A())
         {
             for (int i = 0; i < resources.Count; i++)
             {
@@ -41,7 +41,6 @@ public class ResourceGather : MonoBehaviour
                         //player.ResourceScript.wood += 1;
                         AudioManager.instance.Play("pickup_2");
                     }
-
                     resourceScript.Collect();
                 }
             }

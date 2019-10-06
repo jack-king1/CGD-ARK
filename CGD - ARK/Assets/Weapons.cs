@@ -64,7 +64,5 @@ public class Weapons : Movement
             axe_Right.SetActive(false);
             axe_Up.SetActive(true);
         }
-
-        Debug.Log (animator.GetFloat("Vertical"));
     }
 }
