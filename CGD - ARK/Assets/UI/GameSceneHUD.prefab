@@ -66,7 +66,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 29f345f4ee9601a49b2b261c4583aa9f, type: 3}
+    m_Font: {fileID: 12800000, guid: 800fa8083f1c2dc488f7f958c60fa051, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 29f345f4ee9601a49b2b261c4583aa9f, type: 3}
+    m_Font: {fileID: 12800000, guid: 800fa8083f1c2dc488f7f958c60fa051, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 29f345f4ee9601a49b2b261c4583aa9f, type: 3}
+    m_Font: {fileID: 12800000, guid: 800fa8083f1c2dc488f7f958c60fa051, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -354,3 +354,7 @@ MonoBehaviour:
   healthText: {fileID: 1631353378957590965}
   hungerText: {fileID: 1631353379111540349}
   thirstText: {fileID: 1631353378089935330}
+  playerObject: {fileID: 0}
+  health: {fileID: 0}
+  hunger: {fileID: 0}
+  thirst: {fileID: 0}
