@@ -9,6 +9,7 @@ public class Combat : MonoBehaviour
     public float startAtkDelay;
     [SerializeField] private float damage;
     [SerializeField] private float damageMultiplier;
+    private MapManager mapManager;
 
 
     public Transform atkPos;
@@ -24,6 +25,7 @@ public class Combat : MonoBehaviour
     {
         health = gameObject.GetComponent<Health>();
         damage = damage * damageMultiplier;
+        mapManager = FindObjectOfType<MapManager>();
     }
 
     private void Update()
@@ -95,6 +97,7 @@ public class Combat : MonoBehaviour
                 //play enemy death sound
                 AudioManager.instance.Play("death");
                 gameObject.GetComponent<Enemy>().scoreValue();
+                mapManager.GetComponent<DinoSpawner>().decreaseDinoCount();
             }
             AudioManager.instance.Play("PlayerDeath");
             //End game scene here with play again options.

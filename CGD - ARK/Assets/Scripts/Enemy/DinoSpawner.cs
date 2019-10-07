@@ -12,19 +12,20 @@ public class DinoSpawner : MonoBehaviour
     [SerializeField] private int initialDinoAmount;
     [SerializeField] private float spawnRadiusMin;
     [SerializeField] private float spawnRadiusMax;
-    private Transform playerTransform;
-
+    [SerializeField] private int dinoCount;
+    [SerializeField] private int maxDinoCount;
+    private GameObject player;
+    
     bool initialSpawn = false;
     
     private void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-
+        player = GameObject.FindGameObjectWithTag("Player");
         if(!initialSpawn)
         {
             for(int i = 0; i < initialDinoAmount; ++i)
             {
-                Vector3 spawnPos = RandomCircle(playerTransform.position, RandomRadius());
+                Vector3 spawnPos = RandomCircle(player.transform.position, RandomRadius());
                 Instantiate(dinoPrefab, spawnPos, gameObject.transform.rotation);
             }
         }
@@ -33,6 +34,20 @@ public class DinoSpawner : MonoBehaviour
     private void Update()
     {
         //Spawn Dinos based on score and time in game.
+        if(newDinoTimer <= 0)
+        {
+            //Spawn Dinos
+            if(dinoCount < maxDinoCount)
+            {
+                ++dinoCount;
+                Vector3 spawnPos = RandomCircle(player.transform.position, RandomRadius());
+                Instantiate(dinoPrefab, spawnPos, gameObject.transform.rotation);
+            }
+        }
+        else
+        {
+            newDinoTimer -= Time.deltaTime;
+        }
     }
 
     Vector3 RandomCircle(Vector3 center, float radius)
@@ -49,5 +64,20 @@ public class DinoSpawner : MonoBehaviour
     float RandomRadius()
     {
         return Random.Range(spawnRadiusMin, spawnRadiusMax);
+    }
+
+    int calculateSpawnAmount()
+    {
+        return player.GetComponent<Score>().getScore() / 100;
+    }
+
+    int calculateSpawmRadiusMin()
+    {
+        return player.GetComponent<Score>().getScore() / 100;
+    }
+
+    public void decreaseDinoCount()
+    {
+        dinoCount--;
     }
 }
