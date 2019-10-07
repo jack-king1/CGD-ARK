@@ -593,11 +593,12 @@ MonoBehaviour:
   startAtkDelay: 0.3
   damage: 10
   damageMultiplier: 1
+  AtkDistance: 0
   atkPos: {fileID: 3936237924344173265}
-  atkRadius: 0.72
+  atkRadius: 1
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   thingsToDamage: []
 --- !u!114 &3862815790265782579
 MonoBehaviour:
@@ -614,7 +615,7 @@ MonoBehaviour:
   starting_thirst: 100
   max_thirst: 100
   thirst: 100
-  thirst_rate: 1
+  thirst_rate: 7
 --- !u!114 &-4169613037143073689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,7 +631,7 @@ MonoBehaviour:
   starting_hunger: 100
   max_hunger: 100
   hunger: 100
-  hunger_rate: 1
+  hunger_rate: 6
 --- !u!114 &7932040483634398721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -646,7 +647,7 @@ MonoBehaviour:
   starting_health: 100
   max_health: 100
   health: 100
-  health_rate: 0.5
+  health_rate: 4
 --- !u!114 &-423463878075091584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,6 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScore: 0
+  timeScoreSpeed: 0
 --- !u!114 &-5386064673046544682
 MonoBehaviour:
   m_ObjectHideFlags: 0

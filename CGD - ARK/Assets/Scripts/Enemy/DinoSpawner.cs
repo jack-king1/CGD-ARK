@@ -50,8 +50,8 @@ public class DinoSpawner : MonoBehaviour
         {
             newDinoTimer -= Time.deltaTime;
         }
-
         decreaseSpawnRadiusOverTime();
+        decreaseSpawnRadiusOnScore();
     }
 
     Vector3 RandomCircle(Vector3 center, float radius)
@@ -82,9 +82,7 @@ public class DinoSpawner : MonoBehaviour
 
     public void decreaseDinoCount()
     {
-        Debug.Log("Dino Count: " + dinoCount);
         dinoCount--;
-        Debug.Log("Dino Count after subtract: " + dinoCount);
     }
 
     private void decreaseSpawnRadiusOverTime()
@@ -93,10 +91,44 @@ public class DinoSpawner : MonoBehaviour
         {
             spawnRadiusMax -= 0.01f * Time.deltaTime;
         }
+        else if (spawnRadiusMax <= 2)
+        {
+            spawnRadiusMin = 2;
+        }
 
         if (spawnRadiusMax >= 5)
         {
             spawnRadiusMin -= 0.001f * Time.deltaTime;
-        } 
+        }
+        else if (spawnRadiusMax <= 5)
+        {
+            spawnRadiusMax = 5;
+        }
+    }
+
+    private void decreaseSpawnRadiusOnScore()
+    {
+        if (spawnRadiusMin >= 2)
+        {
+            spawnRadiusMax -= (0.0001f * player.GetComponent<Score>().getScore()) * Time.deltaTime;
+        }
+        else if (spawnRadiusMax <= 2)
+        {
+            spawnRadiusMin = 2;
+        }
+
+        if (spawnRadiusMax >= 5)
+        {
+            spawnRadiusMin -= (0.0001f * player.GetComponent<Score>().getScore()) * Time.deltaTime;
+        }
+        else if (spawnRadiusMax <=5)
+        {
+            spawnRadiusMax = 5;
+        }
+    }
+
+    private void dinoSpawnTimerDecrease()
+    {
+        newDinoTimerAmount -= (0.0001f * player.GetComponent<Score>().getScore() / 100) * Time.deltaTime;
     }
 }

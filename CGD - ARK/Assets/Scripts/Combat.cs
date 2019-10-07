@@ -10,6 +10,7 @@ public class Combat : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float damageMultiplier;
     private MapManager mapManager;
+    [SerializeField] private float AtkDistance;
 
 
     public Transform atkPos;
@@ -60,7 +61,7 @@ public class Combat : MonoBehaviour
                     thingsToDamage = Physics2D.OverlapCircleAll(atkPos.position, atkRadius, whatIsEnemy);
                     for (int i = 0; i < thingsToDamage.Length; ++i)
                     {
-                        thingsToDamage[i].GetComponent<Combat>().TakeDamage(damage);
+                        thingsToDamage[i].GetComponent<Combat>().TakeDamage(damage);    
                     }
                 }
                 atkDelay = startAtkDelay;
@@ -80,9 +81,7 @@ public class Combat : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-        Debug.Log("Taking Dmg: " + dmg);
         health.setHealth(health.currentHealth() - dmg);
-        Debug.Log("Current health: " + health.currentHealth());
         //Death noise rarawrda wdads
         if (health.currentHealth() <= 0)
         {
@@ -90,6 +89,7 @@ public class Combat : MonoBehaviour
             if(gameObject.CompareTag("Player"))
             {
                 //play player death sound
+                gameObject.GetComponent<Health>().setHealth(0);
                 AudioManager.instance.Play("PlayerDeath");
             }
             else
@@ -124,10 +124,5 @@ public class Combat : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(atkPos.position, atkRadius);
-    }
-
-    void Knockback()
-    {
-
     }
 }
