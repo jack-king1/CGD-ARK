@@ -6,7 +6,7 @@ public class ResourceGather : MonoBehaviour
 {
     public List<GameObject> resources = new List<GameObject>();
     PlayerResource pl_resources;
-
+    Score score;
     void Start()
     {
         pl_resources = GetComponent<PlayerResource>();
@@ -25,10 +25,12 @@ public class ResourceGather : MonoBehaviour
                     if (resourceScript.type == 1)
                     {
                         pl_resources.Eat(20);
+                       score.CurrentScore += 150;
                     }
                     else if (resourceScript.type == 2)
                     {
                         pl_resources.Drink(20);
+                        score.CurrentScore += 50;
                     }
                     else if (resourceScript.type == 3)
                     {
