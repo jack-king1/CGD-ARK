@@ -25,7 +25,8 @@ namespace EventTypes
     {
         walking,
         gathering,
-        attacking
+        attacking,
+        nothing
     }
 
     public enum SCENE_TYPE

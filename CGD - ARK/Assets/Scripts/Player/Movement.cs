@@ -19,22 +19,31 @@ public class Movement : MonoBehaviour
 
     public void walk()
     {
-        
-        Vector2 movement = new Vector2(InputManager.Horizontal(),
-            InputManager.Vertical()).normalized;
+        float horizontal_movement;
+        float vertical_movement; 
 
-        rb.velocity = (movement * m_speed * Time.fixedDeltaTime); 
+        horizontal_movement = InputManager.Horizontal();
+        vertical_movement = InputManager.Vertical();
 
+        Vector2 movement = new Vector2(horizontal_movement, vertical_movement);
 
+        if (InputManager.KeyReleased_W() || InputManager.KeyReleased_A() || InputManager.KeyReleased_S() || InputManager.KeyReleased_D())
+        {
+            horizontal_movement = 0;
+            vertical_movement = 0;
+            movement = new Vector2(horizontal_movement, vertical_movement);
+            Stop();
+        }
 
         animator.SetFloat("Horizontal", rb.velocity.x);
         animator.SetFloat("Vertical", rb.velocity.y);
         animator.SetFloat("Speed", rb.velocity.magnitude);
-      
+
+        rb.velocity = (movement.normalized * m_speed * Time.fixedDeltaTime);
     }
 
     public void Stop()
     {
-        //rb.velocity = new Vector2(0f, 0f);
+        rb.velocity = new Vector2(0f, 0f);
     }
 }

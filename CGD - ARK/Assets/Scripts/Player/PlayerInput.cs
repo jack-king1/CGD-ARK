@@ -8,6 +8,8 @@ public class PlayerInput : MonoBehaviour
     private Rigidbody2D rb;
     private Movement movement;
     private PlayerData pd;
+    bool footsteps_playing;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,11 +35,27 @@ public class PlayerInput : MonoBehaviour
             default:
                 break;
         }
+
+        if(InputManager.Horizontal() >0 || InputManager.Horizontal() < 0 || InputManager.Vertical() < 0 || InputManager.Vertical() > 0)
+        {
+            if(!footsteps_playing)
+            {
+                AudioManager.instance.Play("footsteps");
+                footsteps_playing = true;
+            }
+        }
+        else
+        {
+            AudioManager.instance.Stop("footsteps");
+            footsteps_playing = false;
+        }
+
     }
 
     void Walk()
     {
-            movement.walk();
+        movement.walk();
+       
     }
 
     void Gather()
@@ -47,6 +65,9 @@ public class PlayerInput : MonoBehaviour
 
     void Attack()
     {
-
+        if(InputManager.NES_A())
+        {
+            Debug.Log("NES A Pressed");
+        }
     }
 }

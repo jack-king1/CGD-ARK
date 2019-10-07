@@ -38,7 +38,7 @@ public class Movement_Script : MonoBehaviour
             animator.SetFloat("Horizontal", movement.x);
         }
         animator.SetFloat("Speed", movement.sqrMagnitude);
-       
+     
     }
 
     private void FixedUpdate()

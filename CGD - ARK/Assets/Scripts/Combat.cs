@@ -2,49 +2,76 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
 public class Combat : MonoBehaviour
 {
     [SerializeField] private float atkDelay;
     public float startAtkDelay;
     [SerializeField] private float damage;
     [SerializeField] private float damageMultiplier;
-    private PlayerResource pr;//This is just the data for enemies and player however they are kind of 1 atm.
+    private MapManager mapManager;
+
 
     public Transform atkPos;
     public float atkRadius;
     public LayerMask whatIsEnemy;
+    public Collider2D[] thingsToDamage;
 
+    private Health health;
     //This is incase we wanted to swap out different weapons in the future.
     // Maybe dinos could have a weapon or player can customise colour etc? long shot lool D:
     private GameObject[] weapons;
     private void Start()
     {
+        health = gameObject.GetComponent<Health>();
         damage = damage * damageMultiplier;
-        pr = gameObject.GetComponent<PlayerResource>();
+        mapManager = FindObjectOfType<MapManager>();
     }
 
     private void Update()
     {
-        if(atkDelay <= 0)
+        if(gameObject.CompareTag("Player"))
         {
-            if(InputManager.KeyDown_Space())
+            if (atkDelay <= 0)
             {
-                Debug.Log("Space Pressed");
-                Collider2D[] thingsToDamage = Physics2D.OverlapCircleAll(atkPos.position, atkRadius, whatIsEnemy );
-                for(int i = 0; i < thingsToDamage.Length; ++i)
+                if (InputManager.Key_Space() || InputManager.NES_A())
                 {
-                    thingsToDamage[i].GetComponent<Combat>().TakeDamage(damage);
+                    Debug.Log("Player Attacking");
+                    thingsToDamage = Physics2D.OverlapCircleAll(atkPos.position, atkRadius, whatIsEnemy);
+                    for (int i = 0; i < thingsToDamage.Length; ++i)
+                    {
+                        thingsToDamage[i].GetComponent<Combat>().TakeDamage(damage);
+                    }
                 }
+                atkDelay = startAtkDelay;
             }
-            atkDelay = startAtkDelay;
+            else
+            {
+                atkDelay -= Time.deltaTime;
+            }
         }
-        else
+        else if(gameObject.CompareTag("Enemy"))
         {
-            atkDelay -= Time.deltaTime;
+            if (atkDelay <= 0)
+            {
+                if (gameObject.GetComponent<Enemy>().chasing)
+                {
+                    Debug.Log("Enemy Attacking");
+                    thingsToDamage = Physics2D.OverlapCircleAll(atkPos.position, atkRadius, whatIsEnemy);
+                    for (int i = 0; i < thingsToDamage.Length; ++i)
+                    {
+                        thingsToDamage[i].GetComponent<Combat>().TakeDamage(damage);
+                    }
+                }
+                atkDelay = startAtkDelay;
+            }
+            else
+            {
+                atkDelay -= Time.deltaTime;
+            }
         }
+
     }
-
-
 
     public void Attack()
     {
@@ -53,9 +80,41 @@ public class Combat : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-        pr.setHealth(pr.getHealth() - dmg);
-        //Call knockback here
-        //
+        Debug.Log("Taking Dmg: " + dmg);
+        health.setHealth(health.currentHealth() - dmg);
+        Debug.Log("Current health: " + health.currentHealth());
+        //Death noise rarawrda wdads
+        if (health.currentHealth() <= 0)
+        {
+            Destroy(gameObject);
+            if(gameObject.CompareTag("Player"))
+            {
+                //play player death sound
+                AudioManager.instance.Play("PlayerDeath");
+            }
+            else
+            {
+                //play enemy death sound
+                AudioManager.instance.Play("death");
+                gameObject.GetComponent<Enemy>().scoreValue();
+                mapManager.GetComponent<DinoSpawner>().decreaseDinoCount();
+            }
+            AudioManager.instance.Play("PlayerDeath");
+            //End game scene here with play again options.
+        }
+        int random = Random.Range(1, 4);
+        if (random == 1)
+        {
+            AudioManager.instance.Play("attack_1");
+        }
+        else if (random == 2)
+        {
+            AudioManager.instance.Play("attack_2");
+        }
+        else if (random == 3)
+        {
+            AudioManager.instance.Play("attack_3");
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -68,5 +127,4 @@ public class Combat : MonoBehaviour
     {
 
     }
-
 }

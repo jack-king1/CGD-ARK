@@ -12,36 +12,92 @@ public class MenuSelection : MonoBehaviour
 
     private MENU_SELECTION current_selection;
 
+    public GameObject gameManager;
+    private float DPAD_Delay = 0.2f;
+    private float currentDelay = 0.0f;
+
     private void Start()
     {
         current_selection = MENU_SELECTION.start;
+        AudioManager.instance.Play("background_menu");
     }
 
     private void Update()
     {
-        if (InputManager.KeyReleased_W())
+        menuSelection();
+        menuColors();
+        selectionDelay();
+    }
+
+    private void menuSelection()
+    {
+        if (InputManager.KeyReleased_W() || InputManager.DPAD_Up())
         {
-            if(current_selection == MENU_SELECTION.start)
+            if (current_selection == MENU_SELECTION.start && currentDelay <= 0)
             {
                 current_selection = MENU_SELECTION.exit;
+                AudioManager.instance.Play("menu_option_switch");
+                currentDelay = DPAD_Delay;
             }
-            else
+            else if(currentDelay <= 0)
             {
                 current_selection -= 1;
+                AudioManager.instance.Play("menu_option_switch");
+                currentDelay = DPAD_Delay;
             }
         }
-        else if(InputManager.KeyReleased_S())
+        else if (InputManager.KeyReleased_S() || InputManager.DPAD_Down())
         {
-            if (current_selection == MENU_SELECTION.exit)
+            if (current_selection == MENU_SELECTION.exit && currentDelay <= 0)
             {
+                
                 current_selection = MENU_SELECTION.start;
+                AudioManager.instance.Play("menu_option_switch");
+                currentDelay = DPAD_Delay;
             }
-            else
+            else if(currentDelay <= 0)
             {
+                
                 current_selection += 1;
+                AudioManager.instance.Play("menu_option_switch");
+                currentDelay = DPAD_Delay;
             }
         }
+        if (InputManager.KeyUp_Enter() || InputManager.NES_A())
+        {
+            selectionMade();
+        }
+        
+    }
 
+    private void selectionMade()
+    {
+        switch (current_selection)
+        {
+            case MENU_SELECTION.start:
+                SceneLoader.changeScene(SCENE_TYPE.game_scene);
+                gameManager.GetComponent<GameState>().initGameScene();
+                break;
+            case MENU_SELECTION.leaderboard:
+                SceneLoader.changeScene(SCENE_TYPE.leaderboard_scene);
+                break;
+            case MENU_SELECTION.exit:
+                // save any game data here
+            #if UNITY_EDITOR
+                // Application.Quit() does not work in the editor so
+                // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
+                UnityEditor.EditorApplication.isPlaying = false;
+            #else
+                    Application.Quit();
+            #endif
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void menuColors()
+    {
         switch(current_selection)
         {
             case MENU_SELECTION.start:
@@ -62,31 +118,17 @@ public class MenuSelection : MonoBehaviour
             default:
                 break;
         }
+    }
 
-        if(InputManager.KeyUp_Enter())
+    public void selectionDelay()
+    {
+        if (currentDelay > 0)
         {
-            switch (current_selection)
-            {
-                case MENU_SELECTION.start:
-                    SceneLoader.changeScene(SCENE_TYPE.game_scene);
-                    break;
-                case MENU_SELECTION.leaderboard:
-                    SceneLoader.changeScene(SCENE_TYPE.leaderboard_scene);
-                    break;
-                case MENU_SELECTION.exit:
-                    // save any game data here
-                    #if UNITY_EDITOR
-                    // Application.Quit() does not work in the editor so
-                    // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
-                    UnityEditor.EditorApplication.isPlaying = false;
-                    #else
-                    Application.Quit();
-                    #endif
-                    break;
-                default:
-                    break;
-            }
-
+            currentDelay -= Time.deltaTime;
+        }
+        else
+        {
+            currentDelay = 0;
         }
     }
 }

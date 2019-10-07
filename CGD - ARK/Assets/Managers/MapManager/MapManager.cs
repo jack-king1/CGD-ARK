@@ -12,6 +12,9 @@ public class MapManager : MonoBehaviour
     [SerializeField] private Transform[] tile_Positions;
     public GameObject[] tile_types;
 
+    public Bounds bounds = new Bounds();
+    public Vector3 boundsCenter;
+
     private int col_height = 0;
     private int row_width = 0;
 
@@ -19,10 +22,9 @@ public class MapManager : MonoBehaviour
     float width = 8.33f;
     float height = 9.99f;
 
-    private void Awake()
+    public void Awake()
     {
         tile_Positions = new Transform[m_numberOfColumns * m_numberOfRows];
-
         int tile_count = 0;
         //Create Tiles
         for (float i = 0; i < m_numberOfColumns; ++i)
@@ -32,15 +34,15 @@ public class MapManager : MonoBehaviour
                 GameObject temp_tile = tile_types[tile_selector()];
 
                 Instantiate(temp_tile, new Vector2(i * width,
-                            j * height), Quaternion.identity);
+                            j * height), Quaternion.identity, gameObject.transform);
 
                 int current_tile = tile_count;
 
                 tile_Positions[current_tile] = temp_tile.transform;
-                Debug.Log("tile_position length" + tile_Positions.Length);
                 ++tile_count;
             }
         }
+        mapBounds();
     }
 
     int tile_selector()
@@ -68,5 +70,31 @@ public class MapManager : MonoBehaviour
     public int Rows()
     {
         return m_numberOfRows;
+    }
+
+    public void mapBounds()
+    {
+        Quaternion currentRotation = this.transform.rotation;
+        bounds = new Bounds(gameObject.transform.position, Vector3.zero);
+
+        foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
+        {
+            bounds.Encapsulate(renderer.bounds);
+        }
+
+        boundsCenter = bounds.center - this.transform.position;
+        bounds.center = boundsCenter;
+        Debug.Log("The local bounds of this model is " + bounds);
+        this.transform.rotation = currentRotation;
+    }
+
+    public Vector3 GetBoundsCenter()
+    {
+        return bounds.center;
+    }
+
+    public Bounds getBounds()
+    {
+        return bounds;
     }
 }

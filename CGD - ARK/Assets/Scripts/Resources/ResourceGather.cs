@@ -6,7 +6,7 @@ public class ResourceGather : MonoBehaviour
 {
     public List<GameObject> resources = new List<GameObject>();
     PlayerResource pl_resources;
-
+    Score score;
     void Start()
     {
         pl_resources = GetComponent<PlayerResource>();
@@ -14,7 +14,7 @@ public class ResourceGather : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown("e"))
+        if (InputManager.Key_Space() || InputManager.NES_A())
         {
             for (int i = 0; i < resources.Count; i++)
             {
@@ -24,20 +24,23 @@ public class ResourceGather : MonoBehaviour
                     if (resourceScript.type == 1)
                     {
                         pl_resources.Eat(20);
+                        AudioManager.instance.Play("eating");
                     }
                     else if (resourceScript.type == 2)
                     {
                         pl_resources.Drink(20);
+                        AudioManager.instance.Play("drink");
                     }
                     else if (resourceScript.type == 3)
                     {
                         //player.ResourceScript.stone += 1;
+                        AudioManager.instance.Play("pickup_1");
                     }
                     else if (resourceScript.type == 4)
                     {
                         //player.ResourceScript.wood += 1;
+                        AudioManager.instance.Play("pickup_2");
                     }
-
                     resourceScript.Collect();
                 }
             }
