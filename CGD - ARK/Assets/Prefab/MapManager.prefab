@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3006128780021942136}
   - component: {fileID: 1583595288}
   - component: {fileID: 7740888553870296132}
+  - component: {fileID: -4027292047892841737}
   m_Layer: 0
   m_Name: MapManager
   m_TagString: Untagged
@@ -89,3 +90,23 @@ MonoBehaviour:
   bushAmount: 20
   spawnRadiusMin: 1
   spawnRadiusMax: 20
+--- !u!114 &-4027292047892841737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3006128780021942138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b55f3d70c80884b94221a1b79abfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dinoPrefab: {fileID: 6087417566231659277, guid: 99e9141193764a64da88dd634270496c,
+    type: 3}
+  newDinoTimer: 0.5
+  initialDinoAmount: 10
+  spawnRadiusMin: 5
+  spawnRadiusMax: 10
+  dinoCount: 0
+  maxDinoCount: 50

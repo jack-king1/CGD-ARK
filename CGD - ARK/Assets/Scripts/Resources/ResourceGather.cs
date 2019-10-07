@@ -6,7 +6,7 @@ public class ResourceGather : MonoBehaviour
 {
     public List<GameObject> resources = new List<GameObject>();
     PlayerResource pl_resources;
-
+    Score score;
     void Start()
     {
         pl_resources = GetComponent<PlayerResource>();

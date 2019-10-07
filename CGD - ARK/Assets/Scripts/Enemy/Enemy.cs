@@ -7,6 +7,7 @@ using EventTypes;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private int pointsValue;
     [SerializeField] private GameObject player;
     [SerializeField] private float patrolDelay;
     [SerializeField] private float minPatrolDelay;
@@ -109,4 +110,8 @@ public class Enemy : MonoBehaviour
         return currentWaypointCount;
     }
 
+    public int scoreValue()
+    {
+        return pointsValue;
+    }
 }

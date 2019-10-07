@@ -436,6 +436,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b55f3d70c80884b94221a1b79abfc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dinoPrefab: {fileID: 0}
+  newDinoTimer: 0
+  initialDinoAmount: 0
+  spawnRadiusMin: 0
+  spawnRadiusMax: 0
+  dinoCount: 0
+  maxDinoCount: 0
 --- !u!4 &1777818538
 Transform:
   m_ObjectHideFlags: 0
@@ -542,5 +549,11 @@ PrefabInstance:
       propertyPath: damageMultiplier
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2897391878755718811, guid: 58a2d0ac85bd38f4494f238cc03306ab,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e85b8f57ad4908e4694bdde0b61ca484,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58a2d0ac85bd38f4494f238cc03306ab, type: 3}
