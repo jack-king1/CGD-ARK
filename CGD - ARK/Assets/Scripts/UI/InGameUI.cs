@@ -8,11 +8,13 @@ public class InGameUI : MonoBehaviour
     public Text healthText;
     public Text hungerText;
     public Text thirstText;
+    public Text scoreText;
 
     [SerializeField] private GameObject playerObject;
     [SerializeField] private Health health;
     [SerializeField] private Hunger hunger;
     [SerializeField] private Thirst thirst;
+    [SerializeField] private Score score;
 
 
 
@@ -23,11 +25,13 @@ public class InGameUI : MonoBehaviour
         health = playerObject.GetComponent<Health>();
         hunger = playerObject.GetComponent<Hunger>();
         thirst = playerObject.GetComponent<Thirst>();
+        score = playerObject.GetComponent<Score>();
 
 
         healthText.text = health.currentHealth().ToString();
         hungerText.text = hunger.currentHunger().ToString();
         thirstText.text = thirst.currentThirst().ToString();
+        scoreText.text = score.getScore().ToString();
 
 
     }
@@ -41,11 +45,12 @@ public class InGameUI : MonoBehaviour
         int temp_health = (int)health.currentHealth();
         int temp_hunger = (int)hunger.currentHunger();
         int temp_thirst = (int)thirst.currentThirst();
+        int temp_score = (int)score.getScore();
 
         healthText.text = temp_health.ToString();
         hungerText.text = temp_hunger.ToString();
         thirstText.text = temp_thirst.ToString();
-
+        scoreText.text = temp_score.ToString();
         //Need score too.
 
     }
@@ -55,5 +60,6 @@ public class InGameUI : MonoBehaviour
         healthText.text = health.currentHealth().ToString();
         hungerText.text = hunger.currentHunger().ToString();
         thirstText.text = thirst.currentThirst().ToString();
+        scoreText.text = score.getScore().ToString();
     }
 }
