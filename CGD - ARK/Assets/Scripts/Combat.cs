@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EventTypes;
 
 [RequireComponent(typeof(Health))]
 public class Combat : MonoBehaviour
@@ -91,6 +92,7 @@ public class Combat : MonoBehaviour
             {
                 //play player death sound
                 AudioManager.instance.Play("PlayerDeath");
+                SceneLoader.changeScene(SCENE_TYPE.gameover_scene);
             }
             else
             {

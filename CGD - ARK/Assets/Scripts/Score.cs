@@ -20,4 +20,9 @@ public class Score : MonoBehaviour
     {
         currentScore = 0;
     }
+
+    void OnDisable()
+    {
+        PlayerPrefs.SetInt("score", currentScore);
+    }
 }
