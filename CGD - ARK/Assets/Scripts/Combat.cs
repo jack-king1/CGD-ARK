@@ -86,7 +86,7 @@ public class Combat : MonoBehaviour
         //Death noise rarawrda wdads
         if (health.currentHealth() <= 0)
         {
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
             if(gameObject.CompareTag("Player"))
             {
                 //play player death sound
@@ -96,8 +96,11 @@ public class Combat : MonoBehaviour
             {
                 //play enemy death sound
                 AudioManager.instance.Play("death");
-                gameObject.GetComponent<Enemy>().scoreValue();
+                //Add score of enemy value
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Score>().addScore
+                    (gameObject.GetComponent<Enemy>().scoreValue());
                 mapManager.GetComponent<DinoSpawner>().decreaseDinoCount();
+                
             }
             AudioManager.instance.Play("PlayerDeath");
             //End game scene here with play again options.

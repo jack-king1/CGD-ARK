@@ -8,7 +8,8 @@ public class DinoSpawner : MonoBehaviour
     //The more score the player has the closer the enemies spawn.
     //The longer the game has gone on the more enemies spawn.
     [SerializeField] private GameObject dinoPrefab;
-    [SerializeField] private float newDinoTimer = 0.0f;
+    [SerializeField] private float newDinoTimer;
+    [SerializeField] private float newDinoTimerAmount;
     [SerializeField] private int initialDinoAmount;
     [SerializeField] private float spawnRadiusMin;
     [SerializeField] private float spawnRadiusMax;
@@ -43,11 +44,14 @@ public class DinoSpawner : MonoBehaviour
                 Vector3 spawnPos = RandomCircle(player.transform.position, RandomRadius());
                 Instantiate(dinoPrefab, spawnPos, gameObject.transform.rotation);
             }
+            newDinoTimer = newDinoTimerAmount;
         }
         else
         {
             newDinoTimer -= Time.deltaTime;
         }
+
+        decreaseSpawnRadiusOverTime();
     }
 
     Vector3 RandomCircle(Vector3 center, float radius)
@@ -78,6 +82,21 @@ public class DinoSpawner : MonoBehaviour
 
     public void decreaseDinoCount()
     {
+        Debug.Log("Dino Count: " + dinoCount);
         dinoCount--;
+        Debug.Log("Dino Count after subtract: " + dinoCount);
+    }
+
+    private void decreaseSpawnRadiusOverTime()
+    {
+        if(spawnRadiusMin >= 2)
+        {
+            spawnRadiusMax -= 0.01f * Time.deltaTime;
+        }
+
+        if (spawnRadiusMax >= 5)
+        {
+            spawnRadiusMin -= 0.001f * Time.deltaTime;
+        } 
     }
 }

@@ -5,6 +5,13 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     [SerializeField] private int currentScore;
+    [SerializeField] private float timeScoreSpeed;
+
+    private void Update()
+    {
+        currentScore = (int)(gameObject.GetComponent<Timer>().timer * timeScoreSpeed);
+        increaseScoreSpeed();
+    }
 
     public void addScore(int score)
     {
@@ -19,5 +26,10 @@ public class Score : MonoBehaviour
     public void ResetScore()
     {
         currentScore = 0;
+    }
+
+    public void increaseScoreSpeed()
+    {
+        timeScoreSpeed += 0.001f;
     }
 }
