@@ -94,6 +94,7 @@ public class Combat : MonoBehaviour
             {
                 //play enemy death sound
                 AudioManager.instance.Play("death");
+                gameObject.GetComponent<Enemy>().scoreValue();
             }
             AudioManager.instance.Play("PlayerDeath");
             //End game scene here with play again options.
