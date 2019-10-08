@@ -18,6 +18,8 @@ public class GOMenuSelection : MonoBehaviour
     private float DPAD_Delay = 0.2f;
     private float currentDelay = 0.0f;
 
+    [SerializeField] private float buttonLockTimer;
+
     private void Start()
     {
         current_selection = GAMEOVER_SELECTION.restart;
@@ -29,6 +31,10 @@ public class GOMenuSelection : MonoBehaviour
         menuSelection();
         menuColors();
         selectionDelay();
+        if(!can_select)
+        {
+            buttonLockCountDown();
+        }
     }
 
     private void menuSelection()
@@ -104,19 +110,19 @@ public class GOMenuSelection : MonoBehaviour
         switch(current_selection)
         {
             case GAMEOVER_SELECTION.restart:
-                m_Restart.color = Color.gray;
-                m_Menu.color = Color.white;
-                m_Exit.color = Color.white;
+                m_Restart.color = Color.yellow;
+                m_Menu.color = Color.gray;
+                m_Exit.color = Color.gray;
                 break;
             case GAMEOVER_SELECTION.main_menu:
-                m_Restart.color = Color.white;
-                m_Menu.color = Color.grey;
-                m_Exit.color = Color.white;
+                m_Restart.color = Color.gray;
+                m_Menu.color = Color.yellow;
+                m_Exit.color = Color.gray;
                 break;
             case GAMEOVER_SELECTION.exit:
-                m_Restart.color = Color.white;
-                m_Menu.color = Color.white;
-                m_Exit.color = Color.grey;
+                m_Restart.color = Color.gray;
+                m_Menu.color = Color.gray;
+                m_Exit.color = Color.yellow;
                 break;
             default:
                 break;
@@ -135,9 +141,15 @@ public class GOMenuSelection : MonoBehaviour
         }
     }
 
-    IEnumerator ButtonDelay()
+    void buttonLockCountDown()
     {
-        yield return new WaitForSeconds(1);
-        can_select = true;
+        if(buttonLockTimer > 0.0f)
+        {
+            buttonLockTimer -= (Time.deltaTime * 1);
+        }
+        else
+        {
+            can_select = true;
+        } 
     }
 }

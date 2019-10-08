@@ -305,7 +305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1583595288, guid: ef449fe5eda21be4f8421939e0384533, type: 3}
       propertyPath: puddleAmount
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1583595288, guid: ef449fe5eda21be4f8421939e0384533, type: 3}
       propertyPath: spawnRadiusMin
@@ -313,7 +313,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1583595288, guid: ef449fe5eda21be4f8421939e0384533, type: 3}
       propertyPath: spawnRadiusMax
-      value: 25.59
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740888553870296132, guid: ef449fe5eda21be4f8421939e0384533,
+        type: 3}
+      propertyPath: bushAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740888553870296132, guid: ef449fe5eda21be4f8421939e0384533,
+        type: 3}
+      propertyPath: spawnRadiusMax
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef449fe5eda21be4f8421939e0384533, type: 3}

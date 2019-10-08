@@ -8,5 +8,9 @@ public class DontDestroyOnLoad : MonoBehaviour
    void Awake()
     {
         DontDestroyOnLoad(this);
+        if (GameObject.Find("GameManager"))
+        {
+            Destroy(this);
+        }
     }
 }
