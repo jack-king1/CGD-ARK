@@ -33,7 +33,8 @@ namespace EventTypes
     {
         menu_scene,
         game_scene,
-        leaderboard_scene
+        leaderboard_scene,
+        gameover_scene
     }
 
     public enum ENEMYSTATE
@@ -46,7 +47,13 @@ namespace EventTypes
     public enum MENU_SELECTION
     {
         start,
-        leaderboard,
+        exit
+    }
+
+    public enum GAMEOVER_SELECTION
+    {
+        restart,
+        main_menu,
         exit
     }
 }

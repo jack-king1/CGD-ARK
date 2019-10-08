@@ -42,16 +42,16 @@ public class Weapons : Movement
         if (animator.GetFloat("Vertical") == 0 &&
             animator.GetFloat("Horizontal") <= -0.1)
         {
-            axe_Left.SetActive(true);
-            axe_Right.SetActive(false);
+            axe_Left.SetActive(false);
+            axe_Right.SetActive(true);
             axe_Up.SetActive(false);
         }
 
         if (animator.GetFloat("Vertical") == 0 &&
            animator.GetFloat("Horizontal") >= 0.1)
         {
-            axe_Left.SetActive(false);
-            axe_Right.SetActive(true);
+            axe_Left.SetActive(true);
+            axe_Right.SetActive(false);
             axe_Up.SetActive(false);
         }
 
