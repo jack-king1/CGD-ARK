@@ -11,6 +11,7 @@ public class Combat : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float damageMultiplier;
     private MapManager mapManager;
+    [SerializeField] private float AtkDistance;
 
 
     public Transform atkPos;
@@ -61,7 +62,7 @@ public class Combat : MonoBehaviour
                     thingsToDamage = Physics2D.OverlapCircleAll(atkPos.position, atkRadius, whatIsEnemy);
                     for (int i = 0; i < thingsToDamage.Length; ++i)
                     {
-                        thingsToDamage[i].GetComponent<Combat>().TakeDamage(damage);
+                        thingsToDamage[i].GetComponent<Combat>().TakeDamage(damage);    
                     }
                 }
                 atkDelay = startAtkDelay;
@@ -81,16 +82,15 @@ public class Combat : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-        Debug.Log("Taking Dmg: " + dmg);
         health.setHealth(health.currentHealth() - dmg);
-        Debug.Log("Current health: " + health.currentHealth());
         //Death noise rarawrda wdads
         if (health.currentHealth() <= 0)
         {
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
             if(gameObject.CompareTag("Player"))
             {
                 //play player death sound
+                gameObject.GetComponent<Health>().setHealth(0);
                 AudioManager.instance.Play("PlayerDeath");
                 SceneLoader.changeScene(SCENE_TYPE.gameover_scene);
             }
@@ -98,8 +98,11 @@ public class Combat : MonoBehaviour
             {
                 //play enemy death sound
                 AudioManager.instance.Play("death");
-                gameObject.GetComponent<Enemy>().scoreValue();
+                //Add score of enemy value
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Score>().addScore
+                    (gameObject.GetComponent<Enemy>().scoreValue());
                 mapManager.GetComponent<DinoSpawner>().decreaseDinoCount();
+                
             }
             AudioManager.instance.Play("PlayerDeath");
             //End game scene here with play again options.
@@ -123,10 +126,5 @@ public class Combat : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(atkPos.position, atkRadius);
-    }
-
-    void Knockback()
-    {
-
     }
 }

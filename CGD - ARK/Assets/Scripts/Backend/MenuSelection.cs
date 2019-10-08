@@ -7,7 +7,7 @@ using EventTypes;
 public class MenuSelection : MonoBehaviour
 {
     public Text m_Start;
-    public Text m_Leaderboard;
+  //  public Text m_Leaderboard;
     public Text m_Exit;
 
     private MENU_SELECTION current_selection;
@@ -78,9 +78,9 @@ public class MenuSelection : MonoBehaviour
                 SceneLoader.changeScene(SCENE_TYPE.game_scene);
                 gameManager.GetComponent<GameState>().initGameScene();
                 break;
-            case MENU_SELECTION.leaderboard:
-                SceneLoader.changeScene(SCENE_TYPE.leaderboard_scene);
-                break;
+            //case MENU_SELECTION.leaderboard:
+            //    SceneLoader.changeScene(SCENE_TYPE.leaderboard_scene);
+            //    break;
             case MENU_SELECTION.exit:
                 // save any game data here
             #if UNITY_EDITOR
@@ -102,17 +102,17 @@ public class MenuSelection : MonoBehaviour
         {
             case MENU_SELECTION.start:
                 m_Start.color = Color.gray;
-                m_Leaderboard.color = Color.white;
+                /*m_Leaderboard.color = Color.white;*/
                 m_Exit.color = Color.white;
                 break;
-            case MENU_SELECTION.leaderboard:
-                m_Start.color = Color.white;
-                m_Leaderboard.color = Color.grey;
-                m_Exit.color = Color.white;
-                break;
+            //case MENU_SELECTION.leaderboard:
+             //   m_Start.color = Color.white;
+             //   m_Leaderboard.color = Color.grey;    
+              /*  m_Exit.color = Color.white;
+                break;*/
             case MENU_SELECTION.exit:
                 m_Start.color = Color.white;
-                m_Leaderboard.color = Color.white;
+              /*  m_Leaderboard.color = Color.white;*/
                 m_Exit.color = Color.grey;
                 break;
             default:
