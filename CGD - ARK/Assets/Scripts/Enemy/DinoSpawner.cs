@@ -52,6 +52,7 @@ public class DinoSpawner : MonoBehaviour
         }
         decreaseSpawnRadiusOverTime();
         decreaseSpawnRadiusOnScore();
+        dinoSpawnTimerDecrease();
     }
 
     Vector3 RandomCircle(Vector3 center, float radius)
@@ -91,8 +92,10 @@ public class DinoSpawner : MonoBehaviour
         {
             spawnRadiusMax -= 0.01f * Time.deltaTime;
         }
-        else if (spawnRadiusMax <= 2)
+
+        if (spawnRadiusMax <= 2)
         {
+            Debug.Log("Spawn Radius: " + spawnRadiusMin);
             spawnRadiusMin = 2;
         }
 
@@ -100,7 +103,8 @@ public class DinoSpawner : MonoBehaviour
         {
             spawnRadiusMin -= 0.001f * Time.deltaTime;
         }
-        else if (spawnRadiusMax <= 5)
+
+        if (spawnRadiusMax <= 5)
         {
             spawnRadiusMax = 5;
         }
@@ -112,7 +116,8 @@ public class DinoSpawner : MonoBehaviour
         {
             spawnRadiusMax -= (0.0001f * player.GetComponent<Score>().getScore()) * Time.deltaTime;
         }
-        else if (spawnRadiusMax <= 2)
+
+        if (spawnRadiusMax <= 2)
         {
             spawnRadiusMin = 2;
         }
@@ -121,7 +126,8 @@ public class DinoSpawner : MonoBehaviour
         {
             spawnRadiusMin -= (0.0001f * player.GetComponent<Score>().getScore()) * Time.deltaTime;
         }
-        else if (spawnRadiusMax <=5)
+
+        if (spawnRadiusMax <=5)
         {
             spawnRadiusMax = 5;
         }
@@ -129,6 +135,6 @@ public class DinoSpawner : MonoBehaviour
 
     private void dinoSpawnTimerDecrease()
     {
-        newDinoTimerAmount -= (0.0001f * player.GetComponent<Score>().getScore() / 100) * Time.deltaTime;
+        newDinoTimerAmount -= (0.0001f * player.GetComponent<Score>().getScore() / 50) * Time.deltaTime;
     }
 }

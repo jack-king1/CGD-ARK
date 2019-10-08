@@ -1,18 +1,7 @@
-Dino spawmn radius - Jack 
-UI Font - Hector
-WORKINg UI - Hector
-GamepadControls - Jack
-Change sprite for berry bush Court
-Raptor Sprites - To Small, Needs to be bigger - Court
-Scaling Difficulty / Timer or score - Jack
-Leaderboard / Score end of game - Lynny
-Dino Spawner - Jack
-All Audio in game - Luke
-Death Scene With Score and Delay - Becca
-Death Conditions - Becca
-Play Again Option - Eddie
-
-MONDAY AFTERNOON TEST
+Restart biutton delay
+Change sprites to new sprites (berry bush)
+menu selection colour
+msap boundaries
 
 
 

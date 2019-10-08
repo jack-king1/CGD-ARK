@@ -544,7 +544,7 @@ MonoBehaviour:
   m_Menu: {fileID: 624894535}
   m_Exit: {fileID: 672668464}
   gameManager: {fileID: 0}
-  buttonLockTimer: 5
+  buttonLockTimer: 2
 --- !u!1 &934857895
 GameObject:
   m_ObjectHideFlags: 0

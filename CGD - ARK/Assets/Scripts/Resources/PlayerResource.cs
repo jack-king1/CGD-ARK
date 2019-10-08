@@ -62,13 +62,15 @@ public class PlayerResource : MonoBehaviour
 
         if (gameObject.CompareTag("Player") && health.currentHealth() <= 0)
         {
+            AudioManager.instance.Play("death");
+            AudioManager.instance.Stop("background_menu");
             SceneLoader.changeScene(SCENE_TYPE.gameover_scene);
         }
 
-        if (gameObject.CompareTag("Player") && health.currentHealth() <= 0)
-        {
-            SceneLoader.changeScene(SCENE_TYPE.gameover_scene);
-        }
+        //if (gameObject.CompareTag("Player") && health.currentHealth() <= 0)
+        //{
+        //    SceneLoader.changeScene(SCENE_TYPE.gameover_scene);
+        //}
     }
 
     public void Eat(int val)
