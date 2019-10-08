@@ -5,10 +5,21 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     [SerializeField] private int currentScore;
+    private int timerScore;
+    private int killScore;
+    [SerializeField] private float timeScoreSpeed;
+    private int dinosKilled;
+
+    private void Update()
+    {
+        timerScore = (int)(gameObject.GetComponent<Timer>().timer * timeScoreSpeed);
+        currentScore = timerScore + killScore;
+        increaseScoreSpeed();
+    }
 
     public void addScore(int score)
     {
-        currentScore += score;
+        killScore += score;
     }
 
     public int getScore()
@@ -18,7 +29,14 @@ public class Score : MonoBehaviour
 
     public void ResetScore()
     {
+        timerScore = 0;
+        killScore = 0;
         currentScore = 0;
+    }
+
+    public void increaseScoreSpeed()
+    {
+        timeScoreSpeed += 0.001f;
     }
 
     void OnDisable()

@@ -84,7 +84,6 @@ public class MapManager : MonoBehaviour
 
         boundsCenter = bounds.center - this.transform.position;
         bounds.center = boundsCenter;
-        Debug.Log("The local bounds of this model is " + bounds);
         this.transform.rotation = currentRotation;
     }
 

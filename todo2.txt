@@ -1,0 +1,5 @@
+Restart biutton delay
+remove leaderboard
+slower hunger/thirst
+Die when HEALTH is 0
+Change sprites to new sprites (raptor and berry bush)
