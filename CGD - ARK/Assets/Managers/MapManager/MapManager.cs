@@ -9,8 +9,11 @@ public class MapManager : MonoBehaviour
     [SerializeField] private int m_numberOfColumns;
     [SerializeField] private int m_numberOfRows;
 
-    private Vector2[][] tile_Positions;
+    [SerializeField] private Transform[] tile_Positions;
     public GameObject[] tile_types;
+
+    public Bounds bounds = new Bounds();
+    public Vector3 boundsCenter;
 
     private int col_height = 0;
     private int row_width = 0;
@@ -19,8 +22,10 @@ public class MapManager : MonoBehaviour
     float width = 8.33f;
     float height = 9.99f;
 
-    private void Awake()
+    public void Awake()
     {
+        tile_Positions = new Transform[m_numberOfColumns * m_numberOfRows];
+        int tile_count = 0;
         //Create Tiles
         for (float i = 0; i < m_numberOfColumns; ++i)
         {
@@ -28,18 +33,16 @@ public class MapManager : MonoBehaviour
             {
                 GameObject temp_tile = tile_types[tile_selector()];
 
-                //Getting wierd behaviour so hard coded numbers, please dont change
-                //Instantiate(temp_tile, new Vector2(i * temp_tile.GetComponent<TileData>().Width(), 
-                //    j * temp_tile.GetComponent<TileData>().Height()), Quaternion.identity);
-
                 Instantiate(temp_tile, new Vector2(i * width,
-                            j * height), Quaternion.identity);
+                            j * height), Quaternion.identity, gameObject.transform);
+
+                int current_tile = tile_count;
+
+                tile_Positions[current_tile] = temp_tile.transform;
+                ++tile_count;
             }
         }
-        //After tiles have been instantiated call the camera setup function which
-        // Places camera positions
-
-
+        mapBounds();
     }
 
     int tile_selector()
@@ -52,5 +55,46 @@ public class MapManager : MonoBehaviour
         {
             return Random.Range(0, tile_types.Length);
         }
+    }
+
+    public Transform GetTileTransform(int tile_number)
+    {
+        return tile_Positions[tile_number].transform;
+    }
+
+    public int Columns()
+    {
+        return m_numberOfColumns;
+    }
+
+    public int Rows()
+    {
+        return m_numberOfRows;
+    }
+
+    public void mapBounds()
+    {
+        Quaternion currentRotation = this.transform.rotation;
+        bounds = new Bounds(gameObject.transform.position, Vector3.zero);
+
+        foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
+        {
+            bounds.Encapsulate(renderer.bounds);
+        }
+
+        boundsCenter = bounds.center - this.transform.position;
+        bounds.center = boundsCenter;
+        Debug.Log("The local bounds of this model is " + bounds);
+        this.transform.rotation = currentRotation;
+    }
+
+    public Vector3 GetBoundsCenter()
+    {
+        return bounds.center;
+    }
+
+    public Bounds getBounds()
+    {
+        return bounds;
     }
 }

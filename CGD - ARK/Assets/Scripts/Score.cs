@@ -1,25 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 public class Score : MonoBehaviour
 {
-    public Text scoretext;
-    public int CurrentScore;
-    public float timer;
+    [SerializeField] private int currentScore;
 
-    // Update is called once per frame
-    void Update()
+    public void addScore(int score)
     {
-        timer += Time.deltaTime;
+        currentScore += score;
+    }
 
-        if (timer >= 30)
-        {
-            CurrentScore += 13;
-            timer = 0;
-        }
+    public int getScore()
+    {
+        return currentScore;
+    }
 
-       // CurrentScore++;
-        scoretext.text = CurrentScore.ToString("0");
+    public void ResetScore()
+    {
+        currentScore = 0;
+    }
+
+    void OnDisable()
+    {
+        PlayerPrefs.SetInt("score", currentScore);
     }
 }

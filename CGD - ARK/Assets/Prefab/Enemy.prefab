@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8380666335378961105}
   - component: {fileID: 8380666335378961104}
+  - component: {fileID: 4968870804304986577}
   - component: {fileID: -3367229101480276151}
   - component: {fileID: 8380666335378961110}
   - component: {fileID: 8380666335378961107}
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4968870804304986577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8380666335378961111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0574e5ffbdb621946864b31b9bff35a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atkDelay: 0
+  startAtkDelay: 0
+  damage: 0
+  damageMultiplier: 0
+  atkPos: {fileID: 0}
+  atkRange: 0
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &-3367229101480276151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,8 +133,11 @@ MonoBehaviour:
   chaseActive: 0
   player: {fileID: 0}
   patrolDelay: 0
+  minPatrolDelay: 0
+  maxPatrolDelay: 0
   waypoints: []
-  current_waypoint: {fileID: 0}
+  currentWaypointCount: 0
+  currentWaypoint: {fileID: 0}
   speed: 0.6
   chasing: 0
 --- !u!50 &8380666335378961107

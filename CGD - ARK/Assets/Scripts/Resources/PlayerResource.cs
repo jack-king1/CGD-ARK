@@ -2,85 +2,98 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//To Do
+//Ideally the health/hunger and thirst need to be in another script. e.g. PlayerData.
+//Then we can use the script for other objects.
+[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(Hunger))]
+[RequireComponent(typeof(Thirst))]
 public class PlayerResource : MonoBehaviour
 {
-    public int max_health;
-    public float health;
-    float health_rate = 0.5f;
-    public int max_hunger;
-    public float hunger;
-    float hunger_rate = 1f;
-    public int max_thirst;
-    public float thirst;
-    float thirst_rate = 1f;
-        
+    [SerializeField] private Health health;
+    [SerializeField] private Hunger hunger;
+    [SerializeField] private Thirst thirst;
+
     // Start is called before the first frame update
     void Start()
     {
-        health = max_health;
-        hunger = max_hunger;
-        thirst = max_thirst;
+        health = gameObject.GetComponent<Health>();
+        hunger = gameObject.GetComponent<Hunger>();
+        thirst = gameObject.GetComponent<Thirst>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (health < max_health && hunger > 0 && thirst > 0)
+        if (health.currentHealth() < health.maxHealth() 
+            && hunger.currentHunger() > 0 
+            && thirst.currentThirst() > 0)
         {
-            health += health_rate * Time.deltaTime;
-            hunger -= (hunger_rate * 2) * Time.deltaTime;
+            // When not at max health, gradually restore health and lose hunger at twice the rate
+            health.addHealth(health.healthRate() * Time.deltaTime);
+            hunger.minusHunger((hunger.hungerRate() * 2) * Time.deltaTime);
         }
         else
         {
-            if (hunger > 0)
+            // Lose hunger gradually at normal rate
+            if (hunger.currentHunger() > 0)
             {
-                hunger -= hunger_rate * Time.deltaTime;
+                hunger.minusHunger(hunger.hungerRate() * Time.deltaTime);
             }
         }
 
-        if (hunger <= 0)
+        if (hunger.currentHunger() <= 0 && health.currentHealth() > 0)
         {
-            health -= health_rate * Time.deltaTime;
-        }
-        if (thirst <= 0)
-        {
-            health -= health_rate * Time.deltaTime;
+            // Lose health gradually if out of food
+            health.minusHealth(health.healthRate() * Time.deltaTime);
         }
 
-        if (thirst > 0)
+        if (thirst.currentThirst() <= 0 && health.currentHealth() > 0)
         {
-            thirst -= thirst_rate * Time.deltaTime;
+            // Lose health gradually if out of water
+            health.minusHealth(health.healthRate() * Time.deltaTime);
         }
 
+        if (thirst.currentThirst() > 0)
+        {
+            // Lose water gradually at normal rate
+            thirst.minusThirst(thirst.thirstRate() * Time.deltaTime);
+        }
     }
 
     public void Eat(int val)
     {
-        if (hunger < max_hunger)
+        if (hunger.currentHunger() < hunger.maxHunger())
         {
-            if (hunger + val >= max_hunger)
+            if (hunger.currentHunger() + val >= hunger.maxHunger())
             {
-                hunger = max_hunger;
+                hunger.setHunger(hunger.maxHunger());
             }
             else
             {
-                hunger += val;
+                hunger.addHunger(val);
             }
         }
     }
 
     public void Drink(int val)
     {
-        if (thirst < max_thirst)
+        if (thirst.currentThirst() < thirst.maxThirst())
         {
-            if (thirst + val >= max_thirst)
+            if (thirst.currentThirst() + val >= thirst.maxThirst())
             {
-                thirst = max_thirst;
+                thirst.setThirst(thirst.maxThirst());
             }
             else
             {
-                thirst += val;
+                thirst.addThirst(val);
             }
         }
+    }
+
+    public void ResetPlayer()
+    {
+        health.setHealth(health.startingHealth());
+        hunger.setHunger(hunger.startingHunger());
+        thirst.setThirst(thirst.startingThirst());
     }
 }

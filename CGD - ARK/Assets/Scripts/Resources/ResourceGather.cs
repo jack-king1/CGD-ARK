@@ -12,10 +12,9 @@ public class ResourceGather : MonoBehaviour
         pl_resources = GetComponent<PlayerResource>();
     }
     
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("e"))
+        if (InputManager.Key_Space() || InputManager.NES_A())
         {
             for (int i = 0; i < resources.Count; i++)
             {
@@ -25,22 +24,23 @@ public class ResourceGather : MonoBehaviour
                     if (resourceScript.type == 1)
                     {
                         pl_resources.Eat(20);
-                       score.CurrentScore += 150;
+                        AudioManager.instance.Play("eating");
                     }
                     else if (resourceScript.type == 2)
                     {
                         pl_resources.Drink(20);
-                        score.CurrentScore += 50;
+                        AudioManager.instance.Play("drink");
                     }
                     else if (resourceScript.type == 3)
                     {
                         //player.ResourceScript.stone += 1;
+                        AudioManager.instance.Play("pickup_1");
                     }
                     else if (resourceScript.type == 4)
                     {
                         //player.ResourceScript.wood += 1;
+                        AudioManager.instance.Play("pickup_2");
                     }
-
                     resourceScript.Collect();
                 }
             }

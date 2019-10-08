@@ -7,7 +7,7 @@ using EventTypes;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private bool chaseActive;
+    [SerializeField] private int pointsValue;
     [SerializeField] private GameObject player;
     [SerializeField] private float patrolDelay;
     [SerializeField] private float minPatrolDelay;
@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        chasing = false;
         currentWaypoint = waypoints[StartingWaypoint()];
     }
 
@@ -33,11 +34,14 @@ public class Enemy : MonoBehaviour
         if(chasing)
         {
             Chase();
+           
         }
         else
         {
             Patrol();
         }
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,8 +50,9 @@ public class Enemy : MonoBehaviour
         {
             player = collision.gameObject;
             //testing, please change sound
-            AudioManager.instance.Play("Sisters");
+            AudioManager.instance.Play("drop_heavy");
             chasing = true;
+            Debug.Log(chasing);
         }
     }
 
@@ -57,19 +62,19 @@ public class Enemy : MonoBehaviour
         {
             player = null;
             //testing, please change sound
-            AudioManager.instance.Stop("Sisters");
+            AudioManager.instance.Stop("hit_1");
             chasing = false;
         }
     }
 
     void Chase()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.fixedDeltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
     void Patrol()
     {
-        transform.position = Vector2.MoveTowards(transform.position, currentWaypoint.position, speed * Time.fixedDeltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, currentWaypoint.position, speed * Time.deltaTime);
 
         if (Vector2.Distance(gameObject.transform.position, currentWaypoint.transform.position) < 0.2f)
         {
@@ -86,7 +91,6 @@ public class Enemy : MonoBehaviour
                     currentWaypoint = waypoints[currentWaypointCount];
                 }
                 setDelay();
-                Debug.Log("Current Waypoint Count = " + currentWaypointCount);
             }
             else
             {
@@ -98,7 +102,6 @@ public class Enemy : MonoBehaviour
     void setDelay()
     {
         patrolDelay = Random.Range(minPatrolDelay, maxPatrolDelay);
-        Debug.Log("Patrol Delay = " + patrolDelay);
     }
 
     int StartingWaypoint()
@@ -107,4 +110,8 @@ public class Enemy : MonoBehaviour
         return currentWaypointCount;
     }
 
+    public int scoreValue()
+    {
+        return pointsValue;
+    }
 }
