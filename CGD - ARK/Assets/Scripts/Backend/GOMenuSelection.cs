@@ -65,7 +65,7 @@ public class GOMenuSelection : MonoBehaviour
                 currentDelay = DPAD_Delay;
             }
         }
-        if ((InputManager.KeyUp_Enter() || InputManager.NES_A()) && can_select)
+        if ((InputManager.KeyUp_Enter() || InputManager.NES_A()))
         {
             selectionMade();
         }
@@ -135,9 +135,9 @@ public class GOMenuSelection : MonoBehaviour
         }
     }
 
-    IEnumerator ButtonDelay()
-    {
-        yield return new WaitForSeconds(1);
-        can_select = true;
-    }
+    //IEnumerator ButtonDelay()
+    //{
+    //    yield return new WaitForSeconds(1);
+    //    can_select = true;
+    //}
 }

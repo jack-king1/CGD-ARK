@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resource_available: 1
-  respawn_time: 10
+  respawn_time: 20
   type: 1
   empty_spr: {fileID: 21300000, guid: 56dd593d3a6c139468f23bf98cb4f34a, type: 3}
   full_spr: {fileID: 21300000, guid: a1311250eab82ff4b9d24f187565e235, type: 3}
