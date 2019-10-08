@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EventTypes;
 
 //To Do
 //Ideally the health/hunger and thirst need to be in another script. e.g. PlayerData.
@@ -57,6 +58,11 @@ public class PlayerResource : MonoBehaviour
         {
             // Lose water gradually at normal rate
             thirst.minusThirst(thirst.thirstRate() * Time.deltaTime );
+        }
+
+        if (gameObject.CompareTag("Player") && health.currentHealth() <= 0)
+        {
+            SceneLoader.changeScene(SCENE_TYPE.gameover_scene);
         }
     }
 
