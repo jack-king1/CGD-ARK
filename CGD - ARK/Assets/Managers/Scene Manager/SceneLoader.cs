@@ -21,6 +21,9 @@ public static class SceneLoader
             case SCENE_TYPE.leaderboard_scene:
                 SceneManager.LoadScene(2);
                 break;
+            case SCENE_TYPE.gameover_scene:
+                SceneManager.LoadScene(3);
+                break;
             default:
                 break;
         }

@@ -10,6 +10,7 @@ public class ResourceGather : MonoBehaviour
     void Start()
     {
         pl_resources = GetComponent<PlayerResource>();
+        score = GetComponent<Score>(); 
     }
     
     void Update()
@@ -25,11 +26,13 @@ public class ResourceGather : MonoBehaviour
                     {
                         pl_resources.Eat(20);
                         AudioManager.instance.Play("eating");
+                        score.addScore(113);
                     }
                     else if (resourceScript.type == 2)
                     {
                         pl_resources.Drink(20);
                         AudioManager.instance.Play("drink");
+                        score.addScore(113);
                     }
                     else if (resourceScript.type == 3)
                     {

@@ -38,4 +38,9 @@ public class Score : MonoBehaviour
     {
         timeScoreSpeed += 0.001f;
     }
+
+    void OnDisable()
+    {
+        PlayerPrefs.SetInt("score", currentScore);
+    }
 }
