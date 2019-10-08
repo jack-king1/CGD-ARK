@@ -108,7 +108,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 991cde2277b2a8c44a5d02ea164510fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4312671ad0a29be4ebbed39792b9835d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,10 +131,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0574e5ffbdb621946864b31b9bff35a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atkDelay: 0.66
-  startAtkDelay: 0.66
-  damage: 10
+  atkDelay: 0
+  startAtkDelay: 2
+  damage: 20
   damageMultiplier: 1
+  AtkDistance: 0
   atkPos: {fileID: 2407984353586067036}
   atkRadius: 0.5
   whatIsEnemy:
@@ -153,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b3962b3e38612429168aa74f8a867d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsValue: 100
+  pointsValue: 10
   player: {fileID: 0}
   patrolDelay: 2
   minPatrolDelay: 1
@@ -164,7 +165,7 @@ MonoBehaviour:
   - {fileID: 0}
   currentWaypointCount: 0
   currentWaypoint: {fileID: 0}
-  speed: 2
+  speed: 4
   chasing: 0
 --- !u!50 &8380666335378961107
 Rigidbody2D:
@@ -200,18 +201,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0077051073, y: 0}
+  m_Offset: {x: 0.0003912747, y: 0.0006648302}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.27, y: 0.17}
+    oldSize: {x: 0.34, y: 0.22}
     newSize: {x: 10.24, y: 9.95}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0154102, y: 1}
+  m_Size: {x: 0.34121084, y: 0.33377934}
   m_EdgeRadius: 0
 --- !u!114 &511179665845869636
 MonoBehaviour:
