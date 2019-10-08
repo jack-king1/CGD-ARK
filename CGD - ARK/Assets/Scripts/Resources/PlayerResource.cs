@@ -38,7 +38,7 @@ public class PlayerResource : MonoBehaviour
             // Lose hunger gradually at normal rate
             if (hunger.currentHunger() > 0)
             {
-                hunger.minusHunger(hunger.hungerRate() * Time.deltaTime);
+                hunger.minusHunger(hunger.hungerRate() * Time.deltaTime );
             }
         }
 
@@ -51,13 +51,18 @@ public class PlayerResource : MonoBehaviour
         if (thirst.currentThirst() <= 0 && health.currentHealth() > 0)
         {
             // Lose health gradually if out of water
-            health.minusHealth(health.healthRate() * Time.deltaTime);
+            health.minusHealth(health.healthRate() * Time.deltaTime );
         }
 
         if (thirst.currentThirst() > 0)
         {
             // Lose water gradually at normal rate
-            thirst.minusThirst(thirst.thirstRate() * Time.deltaTime);
+            thirst.minusThirst(thirst.thirstRate() * Time.deltaTime );
+        }
+
+        if (gameObject.CompareTag("Player") && health.currentHealth() <= 0)
+        {
+            SceneLoader.changeScene(SCENE_TYPE.gameover_scene);
         }
 
         if (gameObject.CompareTag("Player") && health.currentHealth() <= 0)

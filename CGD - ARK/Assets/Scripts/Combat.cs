@@ -91,21 +91,20 @@ public class Combat : MonoBehaviour
             {
                 //play player death sound
                 gameObject.GetComponent<Health>().setHealth(0);
-                AudioManager.instance.Play("PlayerDeath");
+                AudioManager.instance.Play("death");
+                AudioManager.instance.Stop("background_menu");
                 SceneLoader.changeScene(SCENE_TYPE.gameover_scene);
             }
             else
             {
                 //play enemy death sound
-                AudioManager.instance.Play("death");
+                AudioManager.instance.Play("kill_dino");
                 //Add score of enemy value
                 GameObject.FindGameObjectWithTag("Player").GetComponent<Score>().addScore
                     (gameObject.GetComponent<Enemy>().scoreValue());
                 mapManager.GetComponent<DinoSpawner>().decreaseDinoCount();
                 
             }
-            AudioManager.instance.Play("PlayerDeath");
-            //End game scene here with play again options.
         }
         int random = Random.Range(1, 4);
         if (random == 1)

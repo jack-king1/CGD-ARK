@@ -308,6 +308,26 @@ PrefabInstance:
       propertyPath: sounds.Array.data[0].volume
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1121160380391096104, guid: 661192250b9276a45854e602da509c74,
+        type: 3}
+      propertyPath: sounds.Array.data[5].name
+      value: death
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121160380391096104, guid: 661192250b9276a45854e602da509c74,
+        type: 3}
+      propertyPath: sounds.Array.data[13].volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121160380391096104, guid: 661192250b9276a45854e602da509c74,
+        type: 3}
+      propertyPath: sounds.Array.data[13].pitch
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121160380391096104, guid: 661192250b9276a45854e602da509c74,
+        type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 661192250b9276a45854e602da509c74, type: 3}
 --- !u!1001 &2510929510124691152
@@ -432,6 +452,21 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1103568289}
+    - target: {fileID: 2510929510797346303, guid: 8159f606b382d4b43996d307d339a830,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510929510797346303, guid: 8159f606b382d4b43996d307d339a830,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510929510797346303, guid: 8159f606b382d4b43996d307d339a830,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15.43
+      objectReference: {fileID: 0}
     - target: {fileID: 2510929511603664551, guid: 8159f606b382d4b43996d307d339a830,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -451,16 +486,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 36.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2510929510797346303, guid: 8159f606b382d4b43996d307d339a830,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2510929510797346303, guid: 8159f606b382d4b43996d307d339a830,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -15.43
       objectReference: {fileID: 0}
     - target: {fileID: 2510929510129413840, guid: 8159f606b382d4b43996d307d339a830,
         type: 3}
