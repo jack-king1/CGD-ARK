@@ -21,8 +21,7 @@ public class GOMenuSelection : MonoBehaviour
     private void Start()
     {
         current_selection = GAMEOVER_SELECTION.restart;
-        AudioManager.instance.Play("background_menu");
-        StartCoroutine(ButtonDelay());
+        //AudioManager.instance.Play("background_menu");
     }
 
     private void Update()
@@ -79,6 +78,7 @@ public class GOMenuSelection : MonoBehaviour
         {
             case GAMEOVER_SELECTION.restart:
                 SceneLoader.changeScene(SCENE_TYPE.game_scene);
+                AudioManager.instance.Play("background_menu");
                 gameManager.GetComponent<GameState>().initGameScene();
                 break;
             case GAMEOVER_SELECTION.main_menu:
