@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class CameraSnapScript : MonoBehaviour
 {
-    [SerializeField] private Camera m_mainCamera;
+    private Camera m_mainCamera;
 
     private void Awake()
     {
         m_mainCamera = Camera.main;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void snapCamera(Vector3 new_pos)
     {
-        if(collision.CompareTag("Tile"))
-        {
-            Debug.Log("Player Entered New Tile");
-            m_mainCamera.transform.position = new Vector3(collision.transform.position.x, 
-                collision.transform.position.y, 
+            Debug.Log("Camera changing position: " + new_pos);
+            m_mainCamera.transform.position = new Vector3(new_pos.x, 
+                new_pos.y, 
                 m_mainCamera.transform.position.z);
-        }
     }
 }
