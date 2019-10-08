@@ -72,7 +72,7 @@ public class GOMenuSelection : MonoBehaviour
                 currentDelay = DPAD_Delay;
             }
         }
-        if ((InputManager.KeyUp_Enter() || InputManager.NES_A()) && can_select)
+        if ((InputManager.KeyUp_Enter() || InputManager.NES_A()))
         {
             selectionMade();
         }
