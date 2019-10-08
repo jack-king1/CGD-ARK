@@ -216,7 +216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978f56a8625c8d44e967273ec4054ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_mainCamera: {fileID: 279544693}
 --- !u!1001 &366687429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -307,6 +306,14 @@ PrefabInstance:
     - target: {fileID: 1583595288, guid: ef449fe5eda21be4f8421939e0384533, type: 3}
       propertyPath: puddleAmount
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583595288, guid: ef449fe5eda21be4f8421939e0384533, type: 3}
+      propertyPath: spawnRadiusMin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583595288, guid: ef449fe5eda21be4f8421939e0384533, type: 3}
+      propertyPath: spawnRadiusMax
+      value: 25.59
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef449fe5eda21be4f8421939e0384533, type: 3}
@@ -444,57 +451,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64c8f8fd7d01771449aa1726d39650e6, type: 3}
---- !u!1 &1777818536
-GameObject:
+--- !u!1001 &1071932965322632585
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1777818538}
-  - component: {fileID: 1777818537}
-  m_Layer: 0
-  m_Name: DinoSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1777818537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1777818536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44b55f3d70c80884b94221a1b79abfc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dinoPrefab: {fileID: 0}
-  newDinoTimer: 0
-  newDinoTimerAmount: 0
-  initialDinoAmount: 0
-  spawnRadiusMin: 0
-  spawnRadiusMax: 0
-  dinoCount: 0
-  maxDinoCount: 0
---- !u!4 &1777818538
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1777818536}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1071932965109511293, guid: dfbf5efaeb148954495234020ae2faf9,
+        type: 3}
+      propertyPath: m_Name
+      value: MapBoundry4x4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071932965109511295, guid: dfbf5efaeb148954495234020ae2faf9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071932965109511295, guid: dfbf5efaeb148954495234020ae2faf9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071932965109511295, guid: dfbf5efaeb148954495234020ae2faf9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.716496
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071932965109511295, guid: dfbf5efaeb148954495234020ae2faf9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071932965109511295, guid: dfbf5efaeb148954495234020ae2faf9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071932965109511295, guid: dfbf5efaeb148954495234020ae2faf9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071932965109511295, guid: dfbf5efaeb148954495234020ae2faf9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071932965109511295, guid: dfbf5efaeb148954495234020ae2faf9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071932965109511295, guid: dfbf5efaeb148954495234020ae2faf9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071932965109511295, guid: dfbf5efaeb148954495234020ae2faf9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071932965109511295, guid: dfbf5efaeb148954495234020ae2faf9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dfbf5efaeb148954495234020ae2faf9, type: 3}
 --- !u!1001 &1515454314063104049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -613,6 +638,11 @@ PrefabInstance:
       propertyPath: timeScoreSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4835440882677871435, guid: 58a2d0ac85bd38f4494f238cc03306ab,
+        type: 3}
+      propertyPath: timeScoreSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6427030201061119641, guid: 58a2d0ac85bd38f4494f238cc03306ab,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -708,12 +738,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4835440882677871435, guid: 58a2d0ac85bd38f4494f238cc03306ab,
-        type: 3}
-      propertyPath: timeScoreSpeed
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6574462604324963723, guid: 58a2d0ac85bd38f4494f238cc03306ab, type: 3}
-    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58a2d0ac85bd38f4494f238cc03306ab, type: 3}

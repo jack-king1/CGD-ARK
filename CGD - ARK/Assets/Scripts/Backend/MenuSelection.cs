@@ -101,9 +101,9 @@ public class MenuSelection : MonoBehaviour
         switch(current_selection)
         {
             case MENU_SELECTION.start:
-                m_Start.color = Color.gray;
+                m_Start.color = Color.yellow;
                 /*m_Leaderboard.color = Color.white;*/
-                m_Exit.color = Color.white;
+                m_Exit.color = Color.grey;
                 break;
             //case MENU_SELECTION.leaderboard:
              //   m_Start.color = Color.white;
@@ -111,9 +111,9 @@ public class MenuSelection : MonoBehaviour
               /*  m_Exit.color = Color.white;
                 break;*/
             case MENU_SELECTION.exit:
-                m_Start.color = Color.white;
+                m_Start.color = Color.grey;
               /*  m_Leaderboard.color = Color.white;*/
-                m_Exit.color = Color.grey;
+                m_Exit.color = Color.yellow;
                 break;
             default:
                 break;
