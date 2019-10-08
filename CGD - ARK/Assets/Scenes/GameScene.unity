@@ -290,6 +290,10 @@ PrefabInstance:
       propertyPath: spawnRadiusMax
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1583595288, guid: ef449fe5eda21be4f8421939e0384533, type: 3}
+      propertyPath: puddleAmount
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef449fe5eda21be4f8421939e0384533, type: 3}
 --- !u!1001 &794420346
@@ -557,7 +561,7 @@ PrefabInstance:
     - target: {fileID: 5967624571558008737, guid: 58a2d0ac85bd38f4494f238cc03306ab,
         type: 3}
       propertyPath: atkDelay
-      value: 0.33
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5967624571558008737, guid: 58a2d0ac85bd38f4494f238cc03306ab,
         type: 3}
