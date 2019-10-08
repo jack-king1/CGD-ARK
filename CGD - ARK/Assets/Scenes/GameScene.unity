@@ -325,6 +325,11 @@ PrefabInstance:
       propertyPath: spawnRadiusMax
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 7740888553870296132, guid: ef449fe5eda21be4f8421939e0384533,
+        type: 3}
+      propertyPath: bushAmount
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef449fe5eda21be4f8421939e0384533, type: 3}
 --- !u!1001 &794420346
