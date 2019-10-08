@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: dccaa2705f31e8e48901618493fe7ffd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b676598b465aefb4698f289dbeb25ac0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -113,5 +113,5 @@ MonoBehaviour:
   resource_available: 1
   respawn_time: 10
   type: 2
-  empty_spr: {fileID: 21300000, guid: 5a81492ceb9a55a4dbfaaa738d20f627, type: 3}
+  empty_spr: {fileID: 21300000, guid: 575ef98c44fed25488707401e9336f40, type: 3}
   full_spr: {fileID: 21300000, guid: dccaa2705f31e8e48901618493fe7ffd, type: 3}
