@@ -270,6 +270,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4027292047892841737, guid: ef449fe5eda21be4f8421939e0384533,
+        type: 3}
+      propertyPath: newDinoTimerAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4027292047892841737, guid: ef449fe5eda21be4f8421939e0384533,
+        type: 3}
+      propertyPath: initialDinoAmount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -4027292047892841737, guid: ef449fe5eda21be4f8421939e0384533,
+        type: 3}
+      propertyPath: maxDinoCount
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -4027292047892841737, guid: ef449fe5eda21be4f8421939e0384533,
+        type: 3}
+      propertyPath: spawnRadiusMax
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef449fe5eda21be4f8421939e0384533, type: 3}
 --- !u!1001 &794420346
@@ -389,24 +409,18 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1631353379379334023, guid: 64c8f8fd7d01771449aa1726d39650e6,
+    - target: {fileID: 1631353378957590964, guid: 64c8f8fd7d01771449aa1726d39650e6,
         type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1318024670}
-    - target: {fileID: 1631353379379334023, guid: 64c8f8fd7d01771449aa1726d39650e6,
+      propertyPath: m_AnchoredPosition.x
+      value: 26.599976
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631353378089935341, guid: 64c8f8fd7d01771449aa1726d39650e6,
         type: 3}
-      propertyPath: resourceScript
-      value: 
+      propertyPath: m_AnchoredPosition.x
+      value: -6.299988
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64c8f8fd7d01771449aa1726d39650e6, type: 3}
---- !u!1 &1318024670 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2897391878755718805, guid: 58a2d0ac85bd38f4494f238cc03306ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 1515454314063104049}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1777818536
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dinoPrefab: {fileID: 0}
   newDinoTimer: 0
+  newDinoTimerAmount: 0
   initialDinoAmount: 0
   spawnRadiusMin: 0
   spawnRadiusMax: 0
@@ -549,11 +564,21 @@ PrefabInstance:
       propertyPath: damageMultiplier
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5967624571558008737, guid: 58a2d0ac85bd38f4494f238cc03306ab,
+        type: 3}
+      propertyPath: atkRadius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2897391878755718811, guid: 58a2d0ac85bd38f4494f238cc03306ab,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: e85b8f57ad4908e4694bdde0b61ca484,
         type: 3}
+    - target: {fileID: 4835440882677871435, guid: 58a2d0ac85bd38f4494f238cc03306ab,
+        type: 3}
+      propertyPath: timeScoreSpeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58a2d0ac85bd38f4494f238cc03306ab, type: 3}
