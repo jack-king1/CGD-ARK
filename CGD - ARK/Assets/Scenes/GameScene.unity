@@ -278,7 +278,7 @@ PrefabInstance:
     - target: {fileID: -4027292047892841737, guid: ef449fe5eda21be4f8421939e0384533,
         type: 3}
       propertyPath: initialDinoAmount
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: -4027292047892841737, guid: ef449fe5eda21be4f8421939e0384533,
         type: 3}
@@ -580,6 +580,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e85b8f57ad4908e4694bdde0b61ca484,
         type: 3}
+    - target: {fileID: 4835440882677871435, guid: 58a2d0ac85bd38f4494f238cc03306ab,
+        type: 3}
+      propertyPath: timeScoreSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6427030201061119641, guid: 58a2d0ac85bd38f4494f238cc03306ab,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -674,11 +679,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4835440882677871435, guid: 58a2d0ac85bd38f4494f238cc03306ab,
-        type: 3}
-      propertyPath: timeScoreSpeed
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58a2d0ac85bd38f4494f238cc03306ab, type: 3}

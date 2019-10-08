@@ -432,6 +432,11 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1103568289}
+    - target: {fileID: 2510929510797346303, guid: 8159f606b382d4b43996d307d339a830,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 2510929510715112597, guid: 8159f606b382d4b43996d307d339a830,
         type: 3}
       propertyPath: m_IsActive
