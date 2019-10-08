@@ -47,8 +47,7 @@ namespace EventTypes
     public enum MENU_SELECTION
     {
         start,
-        leaderboard,
-        exit,
+        exit
     }
 
     public enum GAMEOVER_SELECTION
