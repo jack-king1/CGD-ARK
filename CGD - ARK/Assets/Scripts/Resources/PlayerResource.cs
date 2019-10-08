@@ -64,6 +64,11 @@ public class PlayerResource : MonoBehaviour
         {
             SceneLoader.changeScene(SCENE_TYPE.gameover_scene);
         }
+
+        if (gameObject.CompareTag("Player") && health.currentHealth() <= 0)
+        {
+            SceneLoader.changeScene(SCENE_TYPE.gameover_scene);
+        }
     }
 
     public void Eat(int val)
