@@ -10,6 +10,8 @@ public class GOMenuSelection : MonoBehaviour
     public Text m_Menu;
     public Text m_Exit;
 
+    private bool can_select = false;
+
     private GAMEOVER_SELECTION current_selection;
 
     public GameObject gameManager;
@@ -20,6 +22,7 @@ public class GOMenuSelection : MonoBehaviour
     {
         current_selection = GAMEOVER_SELECTION.restart;
         AudioManager.instance.Play("background_menu");
+        StartCoroutine(ButtonDelay());
     }
 
     private void Update()
@@ -63,7 +66,7 @@ public class GOMenuSelection : MonoBehaviour
                 currentDelay = DPAD_Delay;
             }
         }
-        if (InputManager.KeyUp_Enter() || InputManager.NES_A())
+        if ((InputManager.KeyUp_Enter() || InputManager.NES_A()) && can_select)
         {
             selectionMade();
         }
@@ -130,5 +133,11 @@ public class GOMenuSelection : MonoBehaviour
         {
             currentDelay = 0;
         }
+    }
+
+    IEnumerator ButtonDelay()
+    {
+        yield return new WaitForSeconds(1);
+        can_select = true;
     }
 }

@@ -17,6 +17,7 @@ public class MapManager : MonoBehaviour
 
     private int col_height = 0;
     private int row_width = 0;
+    private GameObject player;
 
     //Fixing
     float width = 8.33f;
@@ -24,6 +25,7 @@ public class MapManager : MonoBehaviour
 
     public void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         tile_Positions = new Transform[m_numberOfColumns * m_numberOfRows];
         int tile_count = 0;
         //Create Tiles
@@ -43,6 +45,11 @@ public class MapManager : MonoBehaviour
             }
         }
         mapBounds();
+    }
+
+    private void Update()
+    {
+        setCameraPos();
     }
 
     int tile_selector()
@@ -95,5 +102,22 @@ public class MapManager : MonoBehaviour
     public Bounds getBounds()
     {
         return bounds;
+    }
+
+    public void setCameraPos()
+    {
+        //Get every tile object in mapManager.
+        //Check the player position against every tile 
+        //Check if the player center is within the tile.
+        //If yes
+
+        foreach (Transform child in transform)
+        {
+            Vector3 playerBoundsCenter = player.GetComponent<Renderer>().bounds.center;
+            if (child.gameObject.GetComponent<Renderer>().bounds.Contains(playerBoundsCenter))
+            {
+                Camera.main.GetComponent<CameraSnapScript>().snapCamera(child.transform.position);
+            }
+        }
     }
 }
