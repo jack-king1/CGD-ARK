@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2407984353586067037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2407984353586067036}
+  m_Layer: 0
+  m_Name: AtkPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2407984353586067036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2407984353586067037}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.02468754, y: 0.02468754, z: 0.091082975}
+  m_Children: []
+  m_Father: {fileID: 8380666335378961105}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8380666335378961111
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,13 +41,16 @@ GameObject:
   - component: {fileID: 8380666335378961105}
   - component: {fileID: 8380666335378961104}
   - component: {fileID: 4968870804304986577}
-  - component: {fileID: -3367229101480276151}
   - component: {fileID: 8380666335378961110}
   - component: {fileID: 8380666335378961107}
   - component: {fileID: 8380666335378961106}
-  m_Layer: 0
+  - component: {fileID: 511179665845869636}
+  - component: {fileID: 909957504503059201}
+  - component: {fileID: 2172946992916702475}
+  - component: {fileID: 2407984352539164019}
+  m_Layer: 9
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,8 +64,9 @@ Transform:
   m_GameObject: {fileID: 8380666335378961111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.91, y: 3.17, z: 0}
-  m_LocalScale: {x: 0.069198, y: 0.069198, z: 0.069198}
-  m_Children: []
+  m_LocalScale: {x: 3, y: 3, z: 0.8131335}
+  m_Children:
+  - {fileID: 2407984353586067036}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,7 +108,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 9951c0b205442d54fb7240f39bd8a1ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 991cde2277b2a8c44a5d02ea164510fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,27 +131,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0574e5ffbdb621946864b31b9bff35a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atkDelay: 0
-  startAtkDelay: 0
-  damage: 0
-  damageMultiplier: 0
-  atkPos: {fileID: 0}
-  atkRange: 0
+  atkDelay: 0.66
+  startAtkDelay: 0.66
+  damage: 10
+  damageMultiplier: 1
+  atkPos: {fileID: 2407984353586067036}
+  atkRadius: 0.5
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 0
---- !u!114 &-3367229101480276151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8380666335378961111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac4d0e7f484c2a649932546233fd8b3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+    m_Bits: 256
+  thingsToDamage: []
 --- !u!114 &8380666335378961110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,15 +153,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b3962b3e38612429168aa74f8a867d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseActive: 0
+  pointsValue: 100
   player: {fileID: 0}
-  patrolDelay: 0
-  minPatrolDelay: 0
-  maxPatrolDelay: 0
-  waypoints: []
+  patrolDelay: 2
+  minPatrolDelay: 1
+  maxPatrolDelay: 4
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentWaypointCount: 0
   currentWaypoint: {fileID: 0}
-  speed: 0.6
+  speed: 2
   chasing: 0
 --- !u!50 &8380666335378961107
 Rigidbody2D:
@@ -174,16 +200,79 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0077051073, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.24, y: 9.95}
+    oldSize: {x: 0.27, y: 0.17}
     newSize: {x: 10.24, y: 9.95}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 50, y: 50}
+  m_Size: {x: 1.0154102, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &511179665845869636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8380666335378961111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f5121f059ff3a48aca1c1912b054bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starting_hunger: 0
+  max_hunger: 0
+  hunger: 0
+  hunger_rate: 1
+--- !u!114 &909957504503059201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8380666335378961111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d557468a75f10c49b83fc1f8b37c742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starting_health: 0
+  max_health: 0
+  health: 0
+  health_rate: 0.5
+--- !u!114 &2172946992916702475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8380666335378961111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e448be396bf7ef947976f8814cd29df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starting_thirst: 0
+  max_thirst: 0
+  thirst: 0
+  thirst_rate: 1
+--- !u!114 &2407984352539164019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8380666335378961111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfc500b662f8f34e9b24ff8d6f4f137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  hunger: {fileID: 0}
+  thirst: {fileID: 0}

@@ -78,13 +78,78 @@ public static class InputManager
         return Input.GetButtonUp("Key_S");
     }
 
+    public static bool KeyReleased_A()
+    {
+        return Input.GetButtonUp("Key_A");
+    }
+
+    public static bool KeyReleased_D()
+    {
+        return Input.GetButtonUp("Key_D");
+    }
+
     public static bool KeyUp_Enter()
     {
+      
         return Input.GetButtonUp("Key_Enter");
     }
 
-    public static bool KeyDown_Space()
+    public static bool Key_Space()
     {
-        return Input.GetButtonDown("Key_Space");
+        return Input.GetButton("Key_Space");
+
+    }
+
+    //Snes Pad
+    public static float NES_Vertical()
+    {
+        Debug.Log("NES Vertical: " + Input.GetAxis("NES_Vertical"));
+        return Input.GetAxis("NES_Vertical");
+    }
+
+    public static float NES_Horizontal()
+    {
+        Debug.Log("NES Vertical: " + Input.GetAxis("NES_Horizonal"));
+        return Input.GetAxis("NES_Horizontal");
+    }
+
+    public static bool DPAD_Up()
+    {
+        bool up = false;
+        if(Input.GetAxisRaw("NES_Vertical") == -1)
+        {
+            up = true;
+        }
+        else
+        {
+            up = false;
+        }
+        return up;
+    }
+
+    public static bool DPAD_Down()
+    {
+        bool down = false;
+        if (Input.GetAxisRaw("NES_Vertical") == 1)
+        {
+            down = true;
+        }
+        else
+        {
+            down = false;
+        }
+        return down;
+    }
+
+    public static bool NES_A()
+    {
+        return Input.GetButton("NES_A");
+
+    }
+
+    public static bool NES_B()
+    {
+        return Input.GetButton("NES_B");
+
     }
 }
