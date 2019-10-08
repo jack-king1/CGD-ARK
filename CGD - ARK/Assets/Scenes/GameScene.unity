@@ -580,6 +580,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e85b8f57ad4908e4694bdde0b61ca484,
         type: 3}
+    - target: {fileID: 9099258810409643134, guid: 58a2d0ac85bd38f4494f238cc03306ab,
+        type: 3}
+      propertyPath: thirst_rate
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008519187707945258, guid: 58a2d0ac85bd38f4494f238cc03306ab,
+        type: 3}
+      propertyPath: hunger_rate
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4835440882677871435, guid: 58a2d0ac85bd38f4494f238cc03306ab,
         type: 3}
       propertyPath: timeScoreSpeed
