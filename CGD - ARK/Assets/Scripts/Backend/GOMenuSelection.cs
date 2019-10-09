@@ -31,15 +31,12 @@ public class GOMenuSelection : MonoBehaviour
         menuSelection();
         menuColors();
         selectionDelay();
-        if(!can_select)
-        {
-            buttonLockCountDown();
-        }
+        buttonLockCountDown();
     }
 
     private void menuSelection()
     {
-        if (InputManager.KeyReleased_W() || InputManager.DPAD_Up())
+        if (InputManager.KeyReleased_W() || InputManager.DPAD_Up() && can_select)
         {
             if (current_selection == GAMEOVER_SELECTION.restart && currentDelay <= 0)
             {
@@ -54,7 +51,7 @@ public class GOMenuSelection : MonoBehaviour
                 currentDelay = DPAD_Delay;
             }
         }
-        else if (InputManager.KeyReleased_S() || InputManager.DPAD_Down())
+        else if (InputManager.KeyReleased_S() || InputManager.DPAD_Down() && can_select)
         {
             if (current_selection == GAMEOVER_SELECTION.exit && currentDelay <= 0)
             {
@@ -71,7 +68,7 @@ public class GOMenuSelection : MonoBehaviour
                 currentDelay = DPAD_Delay;
             }
         }
-        if ((InputManager.KeyUp_Enter() || InputManager.NES_A()))
+        if ((InputManager.KeyUp_Enter() || InputManager.NES_A()) && can_select)
         {
             selectionMade();
         }

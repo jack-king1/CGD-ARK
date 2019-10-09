@@ -135,6 +135,6 @@ public class DinoSpawner : MonoBehaviour
 
     private void dinoSpawnTimerDecrease()
     {
-        newDinoTimerAmount -= (0.0001f * player.GetComponent<Score>().getScore() / 50) * Time.deltaTime;
+        //newDinoTimerAmount -= (0.0001f * player.GetComponent<Score>().getScore() / 50) * Time.deltaTime;
     }
 }
